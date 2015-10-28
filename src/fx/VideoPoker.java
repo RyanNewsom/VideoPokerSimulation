@@ -18,7 +18,7 @@ public class VideoPoker extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root);
 
         primaryStage.setTitle("Video Poker Simulation");
         primaryStage.setScene(scene);
