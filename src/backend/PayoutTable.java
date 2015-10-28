@@ -16,5 +16,7 @@ public class PayoutTable {
 	
 	/* Multiplier to apply to the payout table */
 	private double multiplier = 1;
+
+
 	
 }
