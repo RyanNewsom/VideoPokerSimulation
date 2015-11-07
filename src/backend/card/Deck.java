@@ -7,7 +7,7 @@ import java.util.Collections;
  * A deck of cards
  */
 public class Deck {
-    private ArrayList<Card> deckOfCards = new ArrayList<>(10);
+    private ArrayList<Card> deckOfCards = new ArrayList<>(52);
     private int currentCardPosition;
 
     public Deck(){
@@ -16,8 +16,13 @@ public class Deck {
 
     public void createDeck(){
         deckOfCards = generateDeck();
+        shuffleDeck();
     }
 
+    /**
+     * Returns the next card in the deck
+     * @return
+     */
     public Card getCard(){
         if(currentCardPosition >= 52) {
             shuffleDeck();
@@ -29,6 +34,10 @@ public class Deck {
         return card;
     }
 
+    /**
+     * Creates a deck of cards
+     * @return - a un-shuffled set of cards
+     */
     private ArrayList<Card> generateDeck(){
         ArrayList<Card> newDeck = new ArrayList<>();
 
@@ -52,7 +61,6 @@ public class Deck {
                 }
             }
         }
-
         return newDeck;
     }
 
