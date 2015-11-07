@@ -8,6 +8,7 @@ import java.util.Collections;
  */
 public class Deck {
     private ArrayList<Card> deckOfCards = new ArrayList<>(10);
+    private int currentCardPosition;
 
     public Deck(){
         createDeck();
@@ -17,12 +18,14 @@ public class Deck {
         deckOfCards = generateDeck();
     }
 
-    public ArrayList<Card> getDeck(){
-        return deckOfCards;
-    }
-
     public Card getCard(){
-        Card card = deckOfCards.get(0);
+        if(currentCardPosition >= 52) {
+            shuffleDeck();
+            currentCardPosition = 0;
+        }
+        Card card = deckOfCards.get(currentCardPosition);
+        currentCardPosition++;
+
         return card;
     }
 
