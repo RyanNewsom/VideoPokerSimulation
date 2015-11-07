@@ -1,5 +1,7 @@
 package backend;
 
+import backend.card.HandOfCards;
+
 import java.util.ArrayList;
 
 public class Strategy {

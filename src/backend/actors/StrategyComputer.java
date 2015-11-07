@@ -1,4 +1,10 @@
-package backend;
+package backend.actors;
+
+import backend.discard.PossibleOrderingFactory;
+import backend.Strategy;
+import backend.TypeOfStrategy;
+import backend.card.Deck;
+import backend.card.HandOfCards;
 
 import java.util.ArrayList;
 

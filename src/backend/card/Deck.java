@@ -1,9 +1,11 @@
-package backend;
+package backend.card;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * A deck of cards
+ */
 public class Deck {
     private ArrayList<Card> deckOfCards = new ArrayList<>(10);
 

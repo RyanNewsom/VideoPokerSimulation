@@ -8,11 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="896.0" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.Controller">
+<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="896.0" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.View">
    <content>
       <Pane minHeight="640.0" minWidth="896.0">
          <children>
-            <Button fx:id="get_payout_button" layoutX="635.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#handleSubmitButtonAction" opacity="0.0" prefHeight="33.0" prefWidth="148.0" text="Get Expected Payout:" textFill="#224fe3">
+            <Button fx:id="get_payout_button" layoutX="635.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#determineExpectedPayoutButtonClick" opacity="0.0" prefHeight="33.0" prefWidth="148.0" text="Get Expected Payout:" textFill="#224fe3">
                <font>
                   <Font name="Verdana" size="12.0" />
                </font>
@@ -75,7 +75,7 @@
                      </GridPane.margin></TextField>
                </children>
             </GridPane>
-            <Button fx:id="deal_cards_button" layoutX="115.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#handleSubmitButtonAction" opacity="0.0" prefHeight="33.0" prefWidth="148.0" text="Deal" textFill="#224fe3">
+            <Button fx:id="deal_cards_button" layoutX="115.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#drawNewCardsButtonClick" opacity="0.0" prefHeight="33.0" prefWidth="148.0" text="Deal" textFill="#224fe3">
                <font>
                   <Font name="Verdana" size="12.0" />
                </font>

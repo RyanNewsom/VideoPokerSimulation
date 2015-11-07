@@ -1,14 +1,9 @@
 package tests;
 
-import backend.Deck;
-import backend.HandOfCards;
-import backend.PokerMachine;
-import backend.PossibleOrderingFactory;
+import backend.card.Deck;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  *

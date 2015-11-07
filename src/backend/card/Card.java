@@ -1,4 +1,4 @@
-package backend;
+package backend.card;
 
 public class Card {
 	private Suit theSuit;

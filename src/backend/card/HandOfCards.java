@@ -1,4 +1,6 @@
-package backend;
+package backend.card;
+
+import backend.card.Card;
 
 import java.util.ArrayList;
 

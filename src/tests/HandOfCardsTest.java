@@ -1,11 +1,9 @@
 package tests;
 
-import backend.HandOfCards;
+import backend.card.HandOfCards;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Ryan on 11/2/2015.

@@ -1,4 +1,4 @@
-package backend;
+package backend.card;
 
 public class Value {
 	public static int ACE = 0;

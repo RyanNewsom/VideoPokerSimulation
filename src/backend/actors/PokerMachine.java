@@ -1,31 +1,44 @@
-package backend;
+package backend.actors;
+
+import backend.data.PayoutTable;
+import backend.card.Card;
+import backend.card.Deck;
+import backend.card.HandOfCards;
 
 import java.util.ArrayList;
 
 public class PokerMachine {
+
+	//Objects
 	private PayoutTable thePayoutTable;
 	private ArrayList<HandOfCards> possibleHands = new ArrayList<>();
-	Game currentGame;
-	Double expectedPayout;
+	private Deck deckOfCards = new Deck();
+
+	//Data
+	private int currentHandPosition;
 	
 	public PokerMachine(PayoutTable payoutTable){
 		thePayoutTable = payoutTable;
+		setUpPossibleHands();
 	}
-	
-	public HandOfCards dealInitialHand(){
-		//generate a handOfCards 
-		return null;
+
+	/**
+	 * deals a hand of cards
+	 * @return - the next hand in the array of possible hands
+	 */
+	public HandOfCards dealHandOfCards(){
+		return possibleHands.get(currentHandPosition);
 	}
-	
-	public HandOfCards dealFinalHand(){
+
+	/**
+	 * A place holder class in case I ever want to allow a full poker simulation
+	 * @return
+	 */
+	private HandOfCards dealFinalHand(){
 		//deal the final hand
 		return null;
 	}
-	
-	public HandOfCards dealNextHand(){
-		return null;
-	}
-	
+
 	public PayoutTable getPayoutTable(){
 		return thePayoutTable;
 	}

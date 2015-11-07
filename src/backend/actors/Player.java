@@ -1,4 +1,7 @@
-package backend;
+package backend.actors;
+
+import backend.Strategy;
+import backend.card.HandOfCards;
 
 public class Player {
 	private Strategy myStrategy;
