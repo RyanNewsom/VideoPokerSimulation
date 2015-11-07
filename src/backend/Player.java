@@ -8,10 +8,16 @@ public class Player {
 		
 	}
 	
-	public Strategy getBestStrategy(){
+	public Strategy getBestStrategy(HandOfCards initialHand){
+		askStrategyComputerForBestStrategy(initialHand);
 		return myStrategy;
 	}
-	
+
+	private void askStrategyComputerForBestStrategy(HandOfCards initialHand) {
+		StrategyComputer strategyComp = new StrategyComputer();
+		strategyComp.determineBestStrategy(initialHand);
+	}
+
 	public void applyBestStategy(){
 		//This is a placeholder class that could be used to run a simulation
 	}

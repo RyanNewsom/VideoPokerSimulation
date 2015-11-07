@@ -2,9 +2,9 @@ package backend;
 
 public class Card {
 	private Suit theSuit;
-	private Value theValue;
+	private int theValue;
 	
-	public Card(Suit suit, Value value){
+	public Card(Suit suit, int value){
 		setSuit(suit);
 		setValue(value);
 	}
@@ -17,11 +17,11 @@ public class Card {
 		this.theSuit = theSuit;
 	}
 
-	public Value getValue() {
+	public int getValue() {
 		return theValue;
 	}
 
-	public void setValue(Value theValue) {
+	public void setValue(int theValue) {
 		this.theValue = theValue;
 	}
 	
