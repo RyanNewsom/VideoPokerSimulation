@@ -1,6 +1,6 @@
 package backend.card;
 
-public class Card {
+public class Card implements Comparable {
 	private Suit theSuit;
 	private int theValue;
 	
@@ -24,8 +24,17 @@ public class Card {
 	public void setValue(int theValue) {
 		this.theValue = theValue;
 	}
-	
-	
-	
-	
+
+
+	@Override
+	public int compareTo(Object o) {
+		Card card = (Card) o;
+		int compare = card.getValue();
+		return this.getValue() - compare;
+	}
+
+	@Override
+	public String toString() {
+		return " Card Values: S: " + theSuit + " Val: " + theValue;
+	}
 }

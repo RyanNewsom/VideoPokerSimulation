@@ -68,5 +68,13 @@ public class Deck {
         Collections.shuffle(deckOfCards);
     }
 
+    public ArrayList<Card> getCards(){
+        return deckOfCards;
+    }
+
+    public void setDeckOfCards(ArrayList<Card> cards){
+        deckOfCards = cards;
+    }
+
 
 }

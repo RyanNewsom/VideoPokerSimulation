@@ -1,6 +1,7 @@
 package backend.controller;
 
 import backend.Model.Model;
+import backend.Strategy;
 import backend.card.HandOfCards;
 import backend.data.PayoutTable;
 
@@ -12,8 +13,8 @@ public class Controller {
     /**
      * Will tell the model to determine the expected payout
      */
-    public void determineExpectedPayout(PayoutTable payoutTable){
-        notifyModel(payoutTable);
+    public Strategy determineExpectedPayout(PayoutTable payoutTable){
+        return model.determineExpectedPayoutForHand(payoutTable);
     }
 
     /**
@@ -22,14 +23,5 @@ public class Controller {
     public HandOfCards getNewHandOfCards(){
         return model.generateNewHand();
     }
-
-    /**
-     * Tell's the model to update the expected payout
-     * @param payoutTable - the current payout table as defined by the user
-     */
-    private void notifyModel(PayoutTable payoutTable) {
-        model.determineExpectedPayoutForHand(payoutTable);
-    }
-
 
 }

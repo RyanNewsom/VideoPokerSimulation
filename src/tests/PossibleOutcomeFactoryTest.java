@@ -9,7 +9,7 @@ import org.junit.Test;
  *
  * Created by Ryan on 11/4/2015.
  */
-public class PossibleOrderingFactoryTest {
+public class PossibleOutcomeFactoryTest {
 
     @Before
     public void setUp() throws Exception {
@@ -26,7 +26,7 @@ public class PossibleOrderingFactoryTest {
         Deck deck = new Deck();
         deck.shuffleDeck();
 //        PokerMachine machine = new PokerMachine()
-//        PossibleOrderingFactory factory = new PossibleOrderingFactory()
+//        PossibleOutcomeFactory factory = new PossibleOutcomeFactory()
 
     }
 }

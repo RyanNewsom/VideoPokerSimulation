@@ -2,6 +2,7 @@ package backend.actors;
 
 import backend.Strategy;
 import backend.card.HandOfCards;
+import backend.data.PayoutTable;
 
 public class Player {
 	private Strategy myStrategy;
@@ -11,14 +12,19 @@ public class Player {
 		
 	}
 	
-	public Strategy getBestStrategy(HandOfCards initialHand){
-		askStrategyComputerForBestStrategy(initialHand);
+	public Strategy getBestStrategy(HandOfCards initialHand, PayoutTable payoutTable){
+		askStrategyComputerForBestStrategy(initialHand, payoutTable);
 		return myStrategy;
 	}
 
-	private void askStrategyComputerForBestStrategy(HandOfCards initialHand) {
-		StrategyComputer strategyComp = new StrategyComputer();
-		strategyComp.determineBestStrategy(initialHand);
+	/**
+	 * The strategy computer will determine the best strategy for the player
+	 * @param initialHand
+	 * @param payoutTable
+	 */
+	private void askStrategyComputerForBestStrategy(HandOfCards initialHand, PayoutTable payoutTable) {
+		StrategyComputer strategyComp = new StrategyComputer(payoutTable);
+		myStrategy = strategyComp.determineBestStrategy(initialHand);
 	}
 
 	public void applyBestStategy(){

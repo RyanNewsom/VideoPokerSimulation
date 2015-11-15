@@ -1,5 +1,6 @@
 package fx;
 
+import backend.Strategy;
 import backend.card.Suit;
 import backend.data.PayoutTable;
 import backend.card.Card;
@@ -33,6 +34,7 @@ public class View {
     Controller controller = new Controller();
 
     //VIEWS
+    @FXML private Label expected_payout;
     @FXML private TextField royal_flush_text_field;
     @FXML private TextField straight_flush_text_field;
     @FXML private TextField four_of_a_kind_aces_text_field;
@@ -106,8 +108,52 @@ public class View {
         getNewHand();
     }
 
+    /**
+     * Determines expected payout, updates UI
+     */
     private void determineExpectedPayout() {
         PayoutTable payoutTable = createPayoutTable();
+        Strategy optimalStrategy = controller.determineExpectedPayout(payoutTable);
+        applyOptimalStrategy(optimalStrategy);
+        expected_payout.setText("" + optimalStrategy.getExpectedPayout());
+    }
+
+    /**
+     * This method will take the optimal strategy and apply it to the gui
+     */
+    private void applyOptimalStrategy(Strategy optimalStrategy) {
+        //These are the cards to hold onto
+        ArrayList cardsToHold = optimalStrategy.getCardsToHoldOnto();
+        for(int i = 0; i < cardsToHold.size(); i++){
+            //if the index contains true, make that card have the bullet hole through it
+            if(cardsToHold.get(i) == true){
+                holdCard(i);
+            }
+        }
+
+    }
+
+    /**
+     * This will add the bullet hold to the card at the corresponding index to represent it is meant to be held
+     * @param i - the card to be held
+     */
+    private void holdCard(int i) {
+        Image image = new Image(getClass().getResource("bullethole.png").toExternalForm());
+        i++;// 1-5
+        if(i == 1){
+            card_1_main_suite.setImage(image);
+        } else if(i == 2){
+            card_2_suite_main.setImage(image);
+        } else if(i ==3){
+            card_3_suite_main.setImage(image);
+        } else if(i == 4){
+            card_4_suite_main.setImage(image);
+        } else if(i==5){
+            card_5_suite_main.setImage(image);
+        }
+         else{
+            log("error, holdCard method received an in-valid integer");
+        }
     }
 
     private PayoutTable createPayoutTable() {
@@ -146,7 +192,7 @@ public class View {
         for(int i = 0; i < currentHand.getHandOfCards().size(); i++){
             Card currentCard = currentHand.getCard(i);
             cards.add(currentCard);
-            log("Card " + i + 1 + "suite: " + currentCard.getSuit() + "value: " + currentCard.getValue() );
+            log("Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
         }
         drawNewHand();
     }

@@ -6,6 +6,7 @@ import backend.card.Deck;
 import backend.card.HandOfCards;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PokerMachine {
 
@@ -64,6 +65,7 @@ public class PokerMachine {
 		hand.add(card3);
 		hand.add(card4);
 		hand.add(card5);
+		Collections.sort(hand);
 		HandOfCards handOfCards = new HandOfCards(hand);
 		possibleHands.add(handOfCards);
 	}
