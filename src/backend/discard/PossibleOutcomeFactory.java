@@ -22,6 +22,7 @@ public class PossibleOutcomeFactory {
     private ArrayList<HandOfCards> possibleOrderings = new ArrayList<>();
     private ArrayList<Card> theCards;
     ArrayList<Card> newList = new ArrayList<Card>();
+    private Card removedCard;
 
 
 
@@ -40,8 +41,7 @@ public class PossibleOutcomeFactory {
         theCards = cards;
         if(strategy.getTheType() == TypeOfStrategy.HOLD1) {
             //Try the 5 different possibilities for hold 1
-            removeCardFromDeck(strategy.getHandOfCards().getCard(0));
-            Object[] obj = theCards.toArray();
+            removedCard = strategy.getHandOfCards().getCard(0);
             printCombinations();
         }
 
@@ -57,11 +57,17 @@ public class PossibleOutcomeFactory {
     public void subset(ArrayList<Card> A, int k, int start, int currLen, boolean[] used) {
 
         if (currLen == k) {
+            ArrayList<Card> newList = new ArrayList<>();
             for (int i = 0; i < A.size(); i++) {
                 if (used[i] == true) {
+                    newList.add(A.get(i));
                     System.out.print(A.get(i) + " ");
                 }
             }
+            newList.add(removedCard);
+            HandOfCards newHand = new HandOfCards(newList);
+            possibleOrderings.add(newHand);
+            System.out.print(removedCard);
             System.out.println();
             return;
         }
@@ -76,19 +82,6 @@ public class PossibleOutcomeFactory {
         // currLen
         used[start] = false;
         subset(A, k, start + 1, currLen, used);
-    }
-
-    private void removeCardFromDeck(Card card){
-        ArrayList<Card> hand = strategy.getHandOfCards().getHandOfCards();
-        ArrayList<Card> deck = theCards;
-        for(int i = 0; i < hand.size(); i++){
-            for(int j = 0; j < deck.size(); j++) {
-                if (card.getSuit() == deck.get(j).getSuit() && card.getValue() == deck.get(j).getValue()) {
-                    deck.remove(j);
-                }
-            }
-        }
-        theCards = deck;
     }
 
 }
