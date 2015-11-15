@@ -1,5 +1,6 @@
 package fx;
 
+import backend.card.Suit;
 import backend.data.PayoutTable;
 import backend.card.Card;
 import backend.card.HandOfCards;
@@ -8,13 +9,20 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sun.rmi.runtime.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 /**
@@ -35,6 +43,36 @@ public class View {
     @FXML private TextField two_pair_text_field;
     @FXML private TextField pair_jacks_or_better_text_field;
 
+    @FXML public Label card_1_value;
+    @FXML public Label card_1_value_copy;
+    @FXML public ImageView card_1_main_suite;
+    @FXML public ImageView card_1_suit;
+    @FXML public ImageView card_1_suit_copy;
+
+    @FXML public Label card_2_value;
+    @FXML public Label card_2_value_copy;
+    @FXML public ImageView card_2_suite_main;
+    @FXML public ImageView card_2_suite;
+    @FXML public ImageView card_2_suite_copy;
+
+    @FXML public Label card_3_value;
+    @FXML public Label card_3_value_copy;
+    @FXML public ImageView card_3_suite_main;
+    @FXML public ImageView card_3_suite;
+    @FXML public ImageView card_3_suite_copy;
+
+    @FXML public Label card_4_value;
+    @FXML public Label card_4_value_copy;
+    @FXML public ImageView card_4_suite_main;
+    @FXML public ImageView card_4_suit;
+    @FXML public ImageView card_4_suite_copy;
+
+    @FXML public Label card_5_value;
+    @FXML public Label card_5_value_copy;
+    @FXML public ImageView card_5_suite_main;
+    @FXML public ImageView card_5_suite;
+    @FXML public ImageView card_5_suite_copy;
+
     //DATA
     private long multiplier;
     private long royalFlush;
@@ -53,16 +91,10 @@ public class View {
     private Card card3;
     private Card card4;
     private Card card5;
-    private static HandOfCards currentHand;
+    private HandOfCards currentHand;
+    private ArrayList<Card> cards = new ArrayList<>(5);
 
-    /**
-     * Will update the objects and UI for the current hand
-     * @param handOfCards
-     */
-    public static void updateCurrentHand(HandOfCards handOfCards){
-        currentHand = handOfCards;
-        log("updateCurrentHand has been called");
-    }
+
 
     @FXML
     protected void determineExpectedPayoutButtonClick(MouseEvent me){
@@ -71,7 +103,7 @@ public class View {
 
     @FXML
     protected void drawNewCardsButtonClick(MouseEvent event) {
-        drawNewHand();
+        getNewHand();
     }
 
     private void determineExpectedPayout() {
@@ -106,8 +138,98 @@ public class View {
     /**
      * Notifies the controller that the View needs a new hand
      */
+    private void getNewHand() {
+        HandOfCards handOfCards = controller.getNewHandOfCards();
+        currentHand = handOfCards;
+        cards.clear();
+        log("updateCurrentHand has been called");
+        for(int i = 0; i < currentHand.getHandOfCards().size(); i++){
+            Card currentCard = currentHand.getCard(i);
+            cards.add(currentCard);
+            log("Card " + i + 1 + "suite: " + currentCard.getSuit() + "value: " + currentCard.getValue() );
+        }
+        drawNewHand();
+    }
+
+    /**
+     * Set's up the hand to be drawn
+     */
     private void drawNewHand() {
-        controller.getNewHandOfCards();
+        Card card1 = cards.get(0);
+        Card card2 = cards.get(1);
+        Card card3 = cards.get(2);
+        Card card4 = cards.get(3);
+        Card card5 = cards.get(4);
+
+        drawCard(1, card1);
+        drawCard(2, card2);
+        drawCard(3, card3);
+        drawCard(4, card4);
+        drawCard(5, card5);
+
+    }
+
+    /**
+     * Draws a card
+     * @param position - the position of the card in the hand
+     * @param card - the card to be drawn
+     */
+    private void drawCard(int position, Card card) {
+        Image image = new Image(getClass().getResource(card.getSuit().toString() + ".png").toExternalForm());
+        String value = "" + card.getValue();
+        if(value.equals("10"))
+            value = "J";
+        if(value.equals("11"))
+            value = "Q";
+        if(value.equals("12"))
+            value = "K";
+        if(value.equals("0"))
+            value = "A";
+
+        if(position == 1){
+            card1 = card;
+            card_1_main_suite.setImage(image);
+            card_1_suit.setImage(image);
+            card_1_suit_copy.setImage(image);
+            card_1_value.setText(value);
+            card_1_value_copy.setText(value);
+        }
+
+        if(position == 2){
+            card2 = card;
+            card_2_suite_main.setImage(image);
+            card_2_suite.setImage(image);
+            card_2_suite_copy.setImage(image);
+            card_2_value.setText(value);
+            card_2_value_copy.setText(value);
+        }
+
+        if(position == 3){
+            card3 = card;
+            card_3_suite_main.setImage(image);
+            card_3_suite.setImage(image);
+            card_3_suite_copy.setImage(image);
+            card_3_value.setText(value);
+            card_3_value_copy.setText(value);
+        }
+
+        if(position == 4){
+            card4 = card;
+            card_4_suite_main.setImage(image);
+            card_4_suit.setImage(image);
+            card_4_suite_copy.setImage(image);
+            card_4_value.setText(value);
+            card_4_value_copy.setText(value);
+        }
+
+        if(position == 5){
+            card5 = card;
+            card_5_suite_main.setImage(image);
+            card_5_suite.setImage(image);
+            card_5_suite_copy.setImage(image);
+            card_5_value.setText(value);
+            card_5_value_copy.setText(value);
+        }
     }
 
     private static void log(String message){

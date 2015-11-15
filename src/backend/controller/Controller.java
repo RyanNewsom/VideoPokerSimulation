@@ -1,6 +1,7 @@
 package backend.controller;
 
 import backend.Model.Model;
+import backend.card.HandOfCards;
 import backend.data.PayoutTable;
 
 /**
@@ -18,12 +19,8 @@ public class Controller {
     /**
      * Notifies the model to get a new deck of cards and give it to the view
      */
-    public void getNewHandOfCards(){
-        notifyModelNewHand();
-    }
-
-    private void notifyModelNewHand() {
-        model.generateNewHand();
+    public HandOfCards getNewHandOfCards(){
+        return model.generateNewHand();
     }
 
     /**

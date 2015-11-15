@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
@@ -85,6 +86,191 @@
                   <Font name="Rockwell" size="19.0" />
                </font>
             </Label>
+            <Pane layoutX="45.0" layoutY="440.0" prefHeight="162.0" prefWidth="116.0">
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+               <children>
+                  <Label fx:id="card_1_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                     <font>
+                        <Font name="Rockwell" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="card_1_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                     <font>
+                        <Font name="Rockwell" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="card_1_main_suite" fitHeight="80.0" fitWidth="80.0" layoutX="19.0" layoutY="41.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@club.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="card_1_suit" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@club.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="card_1_suit_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@club.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="218.0" layoutY="440.0" prefHeight="162.0" prefWidth="116.0">
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+               <children>
+                  <Pane prefHeight="162.0" prefWidth="116.0">
+                     <children>
+                        <Label fx:id="card_2_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="card_2_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="card_2_suite_main" fitHeight="80.0" fitWidth="80.0" layoutX="19.0" layoutY="41.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_2_suite" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_2_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <effect>
+                        <Glow level="0.0" />
+                     </effect>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="392.0" layoutY="440.0" prefHeight="162.0" prefWidth="116.0">
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+               <children>
+                  <Pane prefHeight="162.0" prefWidth="116.0">
+                     <children>
+                        <Label fx:id="card_3_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="5">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="card_3_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="card_3_suite_main" fitHeight="80.0" fitWidth="80.0" layoutX="19.0" layoutY="41.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@diamond.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_3_suite" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_3_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <effect>
+                        <Glow level="0.0" />
+                     </effect>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="565.0" layoutY="440.0" prefHeight="162.0" prefWidth="116.0">
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+               <children>
+                  <Pane prefHeight="162.0" prefWidth="116.0">
+                     <children>
+                        <Label fx:id="card_4_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="card_4_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="card_4_suite_main" fitHeight="80.0" fitWidth="80.0" layoutX="19.0" layoutY="41.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_4_suit" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_4_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <effect>
+                        <Glow level="0.0" />
+                     </effect>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="739.0" layoutY="440.0" prefHeight="162.0" prefWidth="116.0">
+               <effect>
+                  <Glow level="0.0" />
+               </effect>
+               <children>
+                  <Pane prefHeight="162.0" prefWidth="116.0">
+                     <children>
+                        <Label fx:id="card_5_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="card_5_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                           <font>
+                              <Font name="Rockwell" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="card_5_suite_main" fitHeight="80.0" fitWidth="80.0" layoutX="19.0" layoutY="41.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_5_suite" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="card_5_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@club.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <effect>
+                        <Glow level="0.0" />
+                     </effect>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </content>

@@ -15,11 +15,8 @@ public class HandOfCards {
 		return handOfCards;
 	}
 
-	public Card getCard(int index) throws Exception{
+	public Card getCard(int index){
 		Card card = handOfCards.get(index);
-		if(card == null){
-			throw new Exception("You tried to get a card that is not in the hand");
-		}
 		return card;
 	}
 }

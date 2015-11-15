@@ -15,11 +15,9 @@ public class Model {
     /**
      * generates a new hand, then sends it to the view
      */
-    public void generateNewHand(){
+    public HandOfCards generateNewHand(){
         HandOfCards newHand = pokerMachine.dealHandOfCards();
-        if(newHand != null) {
-            View.updateCurrentHand(newHand);
-        }
+        return newHand;
     }
 
     /**
