@@ -50,23 +50,22 @@ public class PossibleOutcomeFactory {
     }
 
     public void printCombinations(){
-        int A[] = { 1, 2, 3, 4, 5 };
-        boolean[] B = new boolean[A.length];
-        subset(A, 4, 0, 0, B);
+        boolean[] B = new boolean[theCards.size()];
+        subset(theCards, 4, 0, 0, B);
     }
 
-    public void subset(int[] A, int k, int start, int currLen, boolean[] used) {
+    public void subset(ArrayList<Card> A, int k, int start, int currLen, boolean[] used) {
 
         if (currLen == k) {
-            for (int i = 0; i < A.length; i++) {
+            for (int i = 0; i < A.size(); i++) {
                 if (used[i] == true) {
-                    System.out.print(A[i] + " ");
+                    System.out.print(A.get(i) + " ");
                 }
             }
             System.out.println();
             return;
         }
-        if (start == A.length) {
+        if (start == A.size()) {
             return;
         }
         // For every index we have two options,
