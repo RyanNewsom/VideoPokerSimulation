@@ -3,12 +3,14 @@ package backend;
 import backend.card.HandOfCards;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Strategy {
 	private int expectedPayout;
 	private ArrayList cardsToHoldOnto;
 	private HandOfCards handOfCards;
 	private TypeOfStrategy theType;
+	private boolean[] arrayCardsToHold;
 	
 	public Strategy(TypeOfStrategy type, HandOfCards handDealt){
 		theType = type;
@@ -19,12 +21,17 @@ public class Strategy {
 		return expectedPayout;
 	}
 
+	public void setExpectedPayout(int payout){
+		expectedPayout = payout;
+	}
+
 	public ArrayList getCardsToHoldOnto(){
 		return cardsToHoldOnto;
 	}
 
-	public void setCardsToHoldOnto(ArrayList holdOnto){
-		cardsToHoldOnto = holdOnto;
+	public void setCardsToHoldOnto(boolean[] holdOnto){
+		arrayCardsToHold = holdOnto;
+		cardsToHoldOnto = new ArrayList(Arrays.asList(holdOnto));
 	}
 
 	public HandOfCards getHandOfCards() {
@@ -42,5 +49,8 @@ public class Strategy {
 	public void setTheType(TypeOfStrategy theType) {
 		this.theType = theType;
 	}
-	
+
+	public boolean[] getArrayCardsToHold() {
+		return arrayCardsToHold;
+	}
 }

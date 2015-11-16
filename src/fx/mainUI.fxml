@@ -91,12 +91,12 @@
                   <Glow level="0.0" />
                </effect>
                <children>
-                  <Label fx:id="card_1_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                  <Label fx:id="card_1_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="-3.0" prefHeight="24.0" prefWidth="25.0" text="10">
                      <font>
                         <Font name="Rockwell" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="card_1_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                  <Label fx:id="card_1_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="89.0" layoutY="139.0" prefHeight="24.0" prefWidth="25.0" rotate="180.0" text="10">
                      <font>
                         <Font name="Rockwell" size="20.0" />
                      </font>
@@ -105,11 +105,11 @@
                      <image>
                         <Image url="@club.png" />
                      </image></ImageView>
-                  <ImageView fx:id="card_1_suit" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                  <ImageView fx:id="card_1_suit" fitHeight="12.0" fitWidth="12.0" layoutX="6.0" layoutY="22.0" pickOnBounds="true">
                      <image>
                         <Image url="@club.png" />
                      </image></ImageView>
-                  <ImageView fx:id="card_1_suit_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="card_1_suit_copy" fitHeight="12.0" fitWidth="12.0" layoutX="96.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@club.png" />
                      </image></ImageView>
@@ -122,12 +122,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_2_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                        <Label fx:id="card_2_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_2_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                        <Label fx:id="card_2_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="90.0" layoutY="139.0" prefHeight="24.0" prefWidth="23.0" rotate="180.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
@@ -137,12 +137,12 @@
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_2_suite" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                        <ImageView fx:id="card_2_suite" fitHeight="12.0" fitWidth="12.0" layoutX="6.0" layoutY="22.0" pickOnBounds="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_2_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="card_2_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="96.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
@@ -161,12 +161,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_3_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="5">
+                        <Label fx:id="card_3_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="1.0" prefHeight="24.0" prefWidth="25.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_3_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                        <Label fx:id="card_3_value_copy" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="89.0" layoutY="139.0" prefHeight="24.0" prefWidth="26.0" rotate="180.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
@@ -176,12 +176,12 @@
                               <Image url="@diamond.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_3_suite" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                        <ImageView fx:id="card_3_suite" fitHeight="12.0" fitWidth="12.0" layoutX="8.0" layoutY="22.0" pickOnBounds="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_3_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="card_3_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="96.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
@@ -200,12 +200,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_4_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                        <Label fx:id="card_4_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_4_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                        <Label fx:id="card_4_value_copy" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="91.0" layoutY="136.0" prefHeight="24.0" prefWidth="22.0" rotate="180.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
@@ -215,12 +215,12 @@
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_4_suit" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                        <ImageView fx:id="card_4_suit" fitHeight="12.0" fitWidth="12.0" layoutX="6.0" layoutY="22.0" pickOnBounds="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_4_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="card_4_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="96.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
@@ -239,12 +239,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_5_value" alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="4.0" prefHeight="24.0" prefWidth="17.0" text="K">
+                        <Label fx:id="card_5_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_5_value_copy" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="99.0" layoutY="139.0" prefHeight="24.0" prefWidth="17.0" rotate="180.0" text="K">
+                        <Label fx:id="card_5_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="90.0" layoutY="139.0" prefHeight="24.0" prefWidth="23.0" rotate="180.0" text="10">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
@@ -254,12 +254,12 @@
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_5_suite" fitHeight="12.0" fitWidth="12.0" layoutX="4.0" layoutY="22.0" pickOnBounds="true">
+                        <ImageView fx:id="card_5_suite" fitHeight="12.0" fitWidth="12.0" layoutX="6.0" layoutY="22.0" pickOnBounds="true">
                            <image>
                               <Image url="@club.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="card_5_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="98.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="card_5_suite_copy" fitHeight="12.0" fitWidth="12.0" layoutX="96.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@club.png" />
                            </image>

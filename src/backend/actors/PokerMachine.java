@@ -28,7 +28,7 @@ public class PokerMachine {
 	 * @return - the next hand in the array of possible hands
 	 */
 	public HandOfCards dealHandOfCards(){
-		return possibleHands.get(currentHandPosition);
+		return setUpPossibleHands();
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class PokerMachine {
 	 * Add all the possible hands to the possibleHands arrayList
 	 * [TODO] Add all the possibilities
 	 */
-	private void setUpPossibleHands(){
+	private HandOfCards setUpPossibleHands(){
 		Deck deck = new Deck();
 		Card card1 = deck.getCard();
 		Card card2 = deck.getCard();
@@ -67,6 +67,7 @@ public class PokerMachine {
 		hand.add(card5);
 		Collections.sort(hand);
 		HandOfCards handOfCards = new HandOfCards(hand);
-		possibleHands.add(handOfCards);
+		return handOfCards;
+		//		possibleHands.add(handOfCards);
 	}
 }

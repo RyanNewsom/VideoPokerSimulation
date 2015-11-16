@@ -123,10 +123,10 @@ public class View {
      */
     private void applyOptimalStrategy(Strategy optimalStrategy) {
         //These are the cards to hold onto
-        ArrayList cardsToHold = optimalStrategy.getCardsToHoldOnto();
-        for(int i = 0; i < cardsToHold.size(); i++){
+        boolean [] cardsToHold = optimalStrategy.getArrayCardsToHold();
+        for(int i = 0; i < cardsToHold.length; i++){
             //if the index contains true, make that card have the bullet hole through it
-            if(cardsToHold.get(i) == true){
+            if(cardsToHold [i] == true){
                 holdCard(i);
             }
         }
@@ -223,13 +223,13 @@ public class View {
     private void drawCard(int position, Card card) {
         Image image = new Image(getClass().getResource(card.getSuit().toString() + ".png").toExternalForm());
         String value = "" + card.getValue();
-        if(value.equals("10"))
-            value = "J";
         if(value.equals("11"))
-            value = "Q";
+            value = "J";
         if(value.equals("12"))
+            value = "Q";
+        if(value.equals("13"))
             value = "K";
-        if(value.equals("0"))
+        if(value.equals("14"))
             value = "A";
 
         if(position == 1){

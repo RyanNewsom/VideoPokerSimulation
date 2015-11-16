@@ -4,28 +4,28 @@ import backend.Strategy;
 import backend.TypeOfStrategy;
 import backend.card.Card;
 import backend.card.HandOfCards;
-import com.google.common.collect.Sets;
-import com.sun.javafx.css.Combinator;
 
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.Collections;
 
 /**
  * Created by Ryan on 11/3/2015.
+ * Gives all the possible hands that could result from a given strategy
  */
 public class PossibleOutcomeFactory {
     private HandOfCards handOfCards;
     private Strategy strategy;
-    private ArrayList<HandOfCards> possibleOrderings = new ArrayList<>();
+    private ArrayList<ArrayList<Strategy>> allPossibleOrderings = new ArrayList<>();
+    private ArrayList<Strategy> possibleOrderings = new ArrayList<>();
     private ArrayList<Card> theCards;
     ArrayList<Card> newList = new ArrayList<Card>();
     private Card removedCard;
 
 
-
+    /**
+     * Constructor
+     * @param theStrategy - Strategy to be used
+     */
     public PossibleOutcomeFactory(Strategy theStrategy){
         strategy = theStrategy;
         handOfCards = strategy.getHandOfCards();
@@ -37,23 +37,72 @@ public class PossibleOutcomeFactory {
      * @param cards
      * @return
      */
-    public ArrayList<HandOfCards> getAllPossibleOrderings(Strategy strategy, ArrayList<Card> cards){
+    public ArrayList<ArrayList<Strategy>> getAllPossibleOutcomes(Strategy strategy, ArrayList<Card> cards){
         theCards = cards;
         if(strategy.getTheType() == TypeOfStrategy.HOLD1) {
             //Try the 5 different possibilities for hold 1
+            //Hold First Card
             removedCard = strategy.getHandOfCards().getCard(0);
-            printCombinations();
+            boolean [] cardsToHold = new boolean[] {true,false,false,false,false};
+            strategy.setCardsToHoldOnto(cardsToHold);
+            this.strategy = strategy;
+            boolean[] B = new boolean[theCards.size()];
+            subset(theCards, 4, 0, 0, B);
+            allPossibleOrderings.add(possibleOrderings);
+            possibleOrderings = new ArrayList<>();
+
+
+            //Hold Second Card
+            removedCard = strategy.getHandOfCards().getCard(0);
+            boolean [] cardsToHold1 = new boolean[] {false,true,false,false,false};
+            strategy.setCardsToHoldOnto(cardsToHold);
+            this.strategy = strategy;
+            boolean[] B1 = new boolean[theCards.size()];
+            subset(theCards, 4, 0, 0, B);
+            allPossibleOrderings.add(possibleOrderings);
+            possibleOrderings = new ArrayList<>();
+
+            //Hold Third Car
+            removedCard = strategy.getHandOfCards().getCard(0);
+            boolean [] cardsToHold2 = new boolean[] {false,false,true,false,false};
+            strategy.setCardsToHoldOnto(cardsToHold);
+            this.strategy = strategy;
+            boolean[] B2 = new boolean[theCards.size()];
+            subset(theCards, 4, 0, 0, B);
+            allPossibleOrderings.add(possibleOrderings);
+            possibleOrderings = new ArrayList<>();
+
+            //Hold Fourth Car
+            removedCard = strategy.getHandOfCards().getCard(0);
+            boolean [] cardsToHold3 = new boolean[] {false,false,false,true,false};
+            strategy.setCardsToHoldOnto(cardsToHold);
+            this.strategy = strategy;
+            boolean[] B3 = new boolean[theCards.size()];
+            subset(theCards, 4, 0, 0, B);
+            allPossibleOrderings.add(possibleOrderings);
+            possibleOrderings = new ArrayList<>();
+
+            //Hold Fifth Car
+            removedCard = strategy.getHandOfCards().getCard(0);
+            boolean [] cardsToHold4 = new boolean[] {false,false,false,false,true};
+            strategy.setCardsToHoldOnto(cardsToHold);
+            this.strategy = strategy;
+            boolean[] B4 = new boolean[theCards.size()];
+            subset(theCards, 4, 0, 0, B);
+            allPossibleOrderings.add(possibleOrderings);
+            possibleOrderings = new ArrayList<>();
         }
-
-
-        return possibleOrderings;
+        return allPossibleOrderings;
     }
 
-    public void printCombinations(){
-        boolean[] B = new boolean[theCards.size()];
-        subset(theCards, 4, 0, 0, B);
-    }
-
+    /**
+     * This will get all the possible outcome hands, then they each need to be evaluated
+     * @param A - the alphabet
+     * @param k - the size of the subsets
+     * @param start
+     * @param currLen
+     * @param used
+     */
     public void subset(ArrayList<Card> A, int k, int start, int currLen, boolean[] used) {
 
         if (currLen == k) {
@@ -64,9 +113,15 @@ public class PossibleOutcomeFactory {
                     System.out.print(A.get(i) + " ");
                 }
             }
+
             newList.add(removedCard);
+            Collections.sort(newList);
             HandOfCards newHand = new HandOfCards(newList);
-            possibleOrderings.add(newHand);
+            strategy.setHandOfCards(newHand);
+            Strategy newStrategy = new Strategy(strategy.getTheType(), strategy.getHandOfCards());
+            newStrategy.setCardsToHoldOnto(strategy.getArrayCardsToHold());
+            possibleOrderings.add(newStrategy);
+
             System.out.print(removedCard);
             System.out.println();
             return;

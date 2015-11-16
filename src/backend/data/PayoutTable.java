@@ -23,4 +23,40 @@ public class PayoutTable {
 		this.twoPair = twoPair;
 		this.pairOfJacksOrBetter = pairOfJacksOrBetter;
 	}
+
+	public long getRoyalFlush() {
+		return royalFlush;
+	}
+
+	public long getStraightflush() {
+		return straightflush;
+	}
+
+	public long getFourOfAKindAces() {
+		return fourOfAKindAces;
+	}
+
+	public long getFullHouse() {
+		return fullHouse;
+	}
+
+	public long getFlush() {
+		return flush;
+	}
+
+	public long getStraight() {
+		return straight;
+	}
+
+	public long getThreeOfAKind() {
+		return threeOfAKind;
+	}
+
+	public long getTwoPair() {
+		return twoPair;
+	}
+
+	public long getPairOfJacksOrBetter() {
+		return pairOfJacksOrBetter;
+	}
 }
