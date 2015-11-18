@@ -171,7 +171,7 @@ public class StrategyComputer {
      * @return
      */
     private Strategy evaluateStrategy(Evaluator evaluator, Strategy highestExpectedPayoutStrategy, ArrayList<ArrayList<Strategy>> possibleOutcomes) {
-        int totalPayout = 0;
+        double totalPayout = 0;
         int numberOfStrategies = 0;
         double average = 0;
         for(int j = 0; j <possibleOutcomes.size(); j++) {

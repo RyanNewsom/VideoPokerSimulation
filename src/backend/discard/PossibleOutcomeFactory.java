@@ -218,8 +218,7 @@ public class PossibleOutcomeFactory {
             }
 
             HandOfCards newHand = insertHeldCard(newList);
-            strategy.setHandOfCards(newHand);
-            Strategy newStrategy = new Strategy(strategy.getTheType(), strategy.getHandOfCards());
+            Strategy newStrategy = new Strategy(strategy.getTheType(),newHand);
             newStrategy.setCardsToHoldOnto(strategy.getArrayCardsToHold());
             possibleOrderings.add(newStrategy);
 
