@@ -97,7 +97,6 @@ public class View {
     private ArrayList<Card> cards = new ArrayList<>(5);
 
 
-
     @FXML
     protected void determineExpectedPayoutButtonClick(MouseEvent me){
         determineExpectedPayout();
@@ -106,6 +105,7 @@ public class View {
     @FXML
     protected void drawNewCardsButtonClick(MouseEvent event) {
         try {
+            expected_payout.setText("0");
             getNewHand();
         } catch (Exception e) {
             e.printStackTrace();
@@ -285,6 +285,7 @@ public class View {
     private static void log(String message){
         System.out.println("VIEW: " + message);
     }
+
 
 }
 

@@ -91,12 +91,12 @@
                   <Glow level="0.0" />
                </effect>
                <children>
-                  <Label fx:id="card_1_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="-3.0" prefHeight="24.0" prefWidth="25.0" text="10">
+                  <Label fx:id="card_1_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="-3.0" prefHeight="24.0" prefWidth="25.0" text="4">
                      <font>
                         <Font name="Rockwell" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="card_1_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="89.0" layoutY="139.0" prefHeight="24.0" prefWidth="25.0" rotate="180.0" text="10">
+                  <Label fx:id="card_1_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="89.0" layoutY="139.0" prefHeight="24.0" prefWidth="25.0" rotate="180.0" text="4">
                      <font>
                         <Font name="Rockwell" size="20.0" />
                      </font>
@@ -122,12 +122,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_2_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="10">
+                        <Label fx:id="card_2_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="5">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_2_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="90.0" layoutY="139.0" prefHeight="24.0" prefWidth="23.0" rotate="180.0" text="10">
+                        <Label fx:id="card_2_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="90.0" layoutY="139.0" prefHeight="24.0" prefWidth="23.0" rotate="180.0" text="5">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
@@ -200,12 +200,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_4_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="10">
+                        <Label fx:id="card_4_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="A">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_4_value_copy" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="91.0" layoutY="136.0" prefHeight="24.0" prefWidth="22.0" rotate="180.0" text="10">
+                        <Label fx:id="card_4_value_copy" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="91.0" layoutY="136.0" prefHeight="24.0" prefWidth="22.0" rotate="180.0" text="A">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
@@ -239,12 +239,12 @@
                <children>
                   <Pane prefHeight="162.0" prefWidth="116.0">
                      <children>
-                        <Label fx:id="card_5_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="10">
+                        <Label fx:id="card_5_value" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="24.0" prefWidth="23.0" text="2">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="card_5_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="90.0" layoutY="139.0" prefHeight="24.0" prefWidth="23.0" rotate="180.0" text="10">
+                        <Label fx:id="card_5_value_copy" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="90.0" layoutY="139.0" prefHeight="24.0" prefWidth="23.0" rotate="180.0" text="2">
                            <font>
                               <Font name="Rockwell" size="20.0" />
                            </font>
