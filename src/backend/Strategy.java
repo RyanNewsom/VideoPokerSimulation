@@ -21,7 +21,7 @@ public class Strategy {
 		return expectedPayout;
 	}
 
-	public void setExpectedPayout(int payout){
+	public void setExpectedPayout(double payout){
 		expectedPayout = payout;
 	}
 

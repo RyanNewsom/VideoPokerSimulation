@@ -173,7 +173,7 @@ public class StrategyComputer {
     private Strategy evaluateStrategy(Evaluator evaluator, Strategy highestExpectedPayoutStrategy, ArrayList<ArrayList<Strategy>> possibleOutcomes) {
         int totalPayout = 0;
         int numberOfStrategies = 0;
-        int average = 0;
+        double average = 0;
         for(int j = 0; j <possibleOutcomes.size(); j++) {
             ArrayList<Strategy> strategies = possibleOutcomes.get(j);
             Strategy aStrategy = new Strategy(null, null);
@@ -188,7 +188,9 @@ public class StrategyComputer {
             numberOfStrategies = 0;
             totalPayout = 0;
             if (newAverage >= average) {
+                average = newAverage;
                 highestExpectedPayoutStrategy = aStrategy;
+                highestExpectedPayoutStrategy.setExpectedPayout(average);
             }
         }
         return highestExpectedPayoutStrategy;
