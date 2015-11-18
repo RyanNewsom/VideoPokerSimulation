@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Strategy {
-	private int expectedPayout;
+	private double expectedPayout;
 	private ArrayList cardsToHoldOnto;
 	private HandOfCards handOfCards;
 	private TypeOfStrategy theType;
@@ -17,7 +17,7 @@ public class Strategy {
 		handOfCards = handDealt;
 	}
 
-	public int getExpectedPayout() {
+	public double getExpectedPayout() {
 		return expectedPayout;
 	}
 

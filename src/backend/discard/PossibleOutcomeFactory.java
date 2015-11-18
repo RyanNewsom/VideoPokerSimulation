@@ -6,6 +6,7 @@ import backend.card.Card;
 import backend.card.HandOfCards;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -39,60 +40,162 @@ public class PossibleOutcomeFactory {
      */
     public ArrayList<ArrayList<Strategy>> getAllPossibleOutcomes(Strategy strategy, ArrayList<Card> cards){
         theCards = cards;
-        if(strategy.getTheType() == TypeOfStrategy.HOLD1) {
-            //Try the 5 different possibilities for hold 1
-            //Hold First Card
-            removedCard = strategy.getHandOfCards().getCard(0);
-            boolean [] cardsToHold = new boolean[] {true,false,false,false,false};
-            strategy.setCardsToHoldOnto(cardsToHold);
-            this.strategy = strategy;
-            boolean[] B = new boolean[theCards.size()];
-            subset(theCards, 4, 0, 0, B);
-            allPossibleOrderings.add(possibleOrderings);
-            possibleOrderings = new ArrayList<>();
-
-
-            //Hold Second Card
-            removedCard = strategy.getHandOfCards().getCard(0);
-            boolean [] cardsToHold1 = new boolean[] {false,true,false,false,false};
-            strategy.setCardsToHoldOnto(cardsToHold);
-            this.strategy = strategy;
-            boolean[] B1 = new boolean[theCards.size()];
-            subset(theCards, 4, 0, 0, B);
-            allPossibleOrderings.add(possibleOrderings);
-            possibleOrderings = new ArrayList<>();
-
-            //Hold Third Car
-            removedCard = strategy.getHandOfCards().getCard(0);
-            boolean [] cardsToHold2 = new boolean[] {false,false,true,false,false};
-            strategy.setCardsToHoldOnto(cardsToHold);
-            this.strategy = strategy;
-            boolean[] B2 = new boolean[theCards.size()];
-            subset(theCards, 4, 0, 0, B);
-            allPossibleOrderings.add(possibleOrderings);
-            possibleOrderings = new ArrayList<>();
-
-            //Hold Fourth Car
-            removedCard = strategy.getHandOfCards().getCard(0);
-            boolean [] cardsToHold3 = new boolean[] {false,false,false,true,false};
-            strategy.setCardsToHoldOnto(cardsToHold);
-            this.strategy = strategy;
-            boolean[] B3 = new boolean[theCards.size()];
-            subset(theCards, 4, 0, 0, B);
-            allPossibleOrderings.add(possibleOrderings);
-            possibleOrderings = new ArrayList<>();
-
-            //Hold Fifth Car
-            removedCard = strategy.getHandOfCards().getCard(0);
-            boolean [] cardsToHold4 = new boolean[] {false,false,false,false,true};
-            strategy.setCardsToHoldOnto(cardsToHold);
-            this.strategy = strategy;
-            boolean[] B4 = new boolean[theCards.size()];
-            subset(theCards, 4, 0, 0, B);
-            allPossibleOrderings.add(possibleOrderings);
-            possibleOrderings = new ArrayList<>();
+        this.strategy = strategy;
+        possibleOrderings.clear();
+        allPossibleOrderings.clear();
+        if(strategy.getTheType() == TypeOfStrategy.HOLD0) {
+            runallHold0();
         }
+
+        if(strategy.getTheType() == TypeOfStrategy.HOLD1) {
+            runallHold1();
+        }
+
+        if(strategy.getTheType() == TypeOfStrategy.HOLD2) {
+            runallHold2();
+        }
+
+        if(strategy.getTheType() == TypeOfStrategy.HOLD3) {
+            runallHold3();
+        }
+
+        if(strategy.getTheType() == TypeOfStrategy.HOLD4) {
+            runallHold4();
+        }
+
+        if(strategy.getTheType() == TypeOfStrategy.HOLD5) {
+            runallHold5();
+        }
+
         return allPossibleOrderings;
+    }
+
+    private void runallHold5() {
+        boolean [] cardsToHold = new boolean[] {true,true,true,true,true};
+        determineOrderings(cardsToHold,0);
+    }
+
+    private void runallHold4() {
+        boolean [] cardsToHold = new boolean[] {false,true,true,true,true};
+        determineOrderings(cardsToHold,1);
+
+        boolean [] cardsToHold1 = new boolean[] {true,false,true,true,true};
+        determineOrderings(cardsToHold1,1);
+
+        boolean [] cardsToHold2 = new boolean[] {true,true,false,true,true};
+        determineOrderings(cardsToHold2,1);
+
+        boolean [] cardsToHold3 = new boolean[] {true,true,true,false,true};
+        determineOrderings(cardsToHold3,1);
+
+        boolean [] cardsToHold4 = new boolean[] {true,true,true,true,false};
+        determineOrderings(cardsToHold4,1);
+    }
+
+    private void runallHold3() {
+        boolean [] cardsToHold = new boolean[] {true,true,true,false,false};
+        determineOrderings(cardsToHold,2);
+
+        boolean [] cardsToHold1 = new boolean[] {false,true,true,true,false};
+        determineOrderings(cardsToHold1,2);
+
+        boolean [] cardsToHold2 = new boolean[] {false,false,true,true,true};
+        determineOrderings(cardsToHold2,2);
+
+        boolean [] cardsToHold3 = new boolean[] {true,true,false,false,true};
+        determineOrderings(cardsToHold3,2);
+
+        boolean [] cardsToHold4 = new boolean[] {true,true,false,true,false};
+        determineOrderings(cardsToHold4,2);
+
+        boolean [] cardsToHold5 = new boolean[] {true,false,true,true,false};
+        determineOrderings(cardsToHold5,2);
+
+        boolean [] cardsToHold6 = new boolean[] {true,false,true,false,true};
+        determineOrderings(cardsToHold6,2);
+
+        boolean [] cardsToHold7 = new boolean[] {true,false,false,true,true};
+        determineOrderings(cardsToHold7,2);
+
+        boolean [] cardsToHold8 = new boolean[] {false,true,true,false,true};
+        determineOrderings(cardsToHold8,2);
+    }
+
+    private void runallHold2() {
+        boolean [] cardsToHold = new boolean[] {true,true,false,false,false};
+        determineOrderings(cardsToHold,3);
+
+        boolean [] cardsToHold1 = new boolean[] {true,false,true,false,false};
+        determineOrderings(cardsToHold1,3);
+
+        boolean [] cardsToHold2 = new boolean[] {true,false,false,true,false};
+        determineOrderings(cardsToHold2,3);
+
+        boolean [] cardsToHold3 = new boolean[] {true,false,false,false,true};
+        determineOrderings(cardsToHold3,3);
+
+        boolean [] cardsToHold4 = new boolean[] {false,true,true,false,false};
+        determineOrderings(cardsToHold4,3);
+
+        boolean [] cardsToHold5 = new boolean[] {false,true,false,true,false};
+        determineOrderings(cardsToHold5, 3);
+
+        boolean [] cardsToHold6 = new boolean[] {false,true,false,false,true};
+        determineOrderings(cardsToHold6,3);
+
+        boolean [] cardsToHold7 = new boolean[] {false,false,true,true,false};
+        determineOrderings(cardsToHold7, 3);
+
+        boolean [] cardsToHold8 = new boolean[] {false,false,true,false,true};
+        determineOrderings(cardsToHold8, 3);
+
+        boolean [] cardsToHold9 = new boolean[] {false,false,false,true,true};
+        determineOrderings(cardsToHold9,3);
+    }
+
+    private void runallHold1() {
+        //Try the 5 different possibilities for hold 1
+        //Hold First Card
+        boolean [] cardsToHold = new boolean[] {true,false,false,false,false};
+        determineOrderings(cardsToHold, 4);
+
+
+        //Hold Second Card
+        boolean [] cardsToHold1 = new boolean[] {false,true,false,false,false};
+        determineOrderings(cardsToHold1, 4);
+
+
+        //Hold Third Car
+        boolean [] cardsToHold2 = new boolean[] {false,false,true,false,false};
+        determineOrderings(cardsToHold2, 4);
+
+
+        //Hold Fourth Car
+        boolean [] cardsToHold3 = new boolean[] {false,false,false,true,false};
+        determineOrderings(cardsToHold3, 4);
+
+
+        //Hold Fifth Car
+        boolean [] cardsToHold4 = new boolean[] {false,false,false,false,true};
+        determineOrderings(cardsToHold4, 4);
+    }
+
+    private void runallHold0(){
+        boolean [] cardsToHold = new boolean[] {false,false,false,false,false};
+        determineOrderings(cardsToHold, 5);
+    }
+
+    /**
+     * Determines the possible orderings and populates the arraylist
+     * @param cardsToHold
+     * @param amountToGet
+     */
+    private void determineOrderings(boolean[] cardsToHold, int amountToGet) {
+        boolean[] b = new boolean[theCards.size()] ;
+        this.strategy.setCardsToHoldOnto(cardsToHold);
+        subset(theCards, amountToGet, 0, 0, b);
+        allPossibleOrderings.add(possibleOrderings);
+        possibleOrderings = new ArrayList<>();
     }
 
     /**
@@ -110,20 +213,18 @@ public class PossibleOutcomeFactory {
             for (int i = 0; i < A.size(); i++) {
                 if (used[i] == true) {
                     newList.add(A.get(i));
-                    System.out.print(A.get(i) + " ");
+//                    System.out.print(A.get(i) + " ");
                 }
             }
 
-            newList.add(removedCard);
-            Collections.sort(newList);
-            HandOfCards newHand = new HandOfCards(newList);
+            HandOfCards newHand = insertHeldCard(newList);
             strategy.setHandOfCards(newHand);
             Strategy newStrategy = new Strategy(strategy.getTheType(), strategy.getHandOfCards());
             newStrategy.setCardsToHoldOnto(strategy.getArrayCardsToHold());
             possibleOrderings.add(newStrategy);
 
-            System.out.print(removedCard);
-            System.out.println();
+//            System.out.print(newStrategy.getCardsToHoldOnto());
+//            System.out.println();
             return;
         }
         if (start == A.size()) {
@@ -137,6 +238,25 @@ public class PossibleOutcomeFactory {
         // currLen
         used[start] = false;
         subset(A, k, start + 1, currLen, used);
+    }
+
+    private HandOfCards insertHeldCard(ArrayList<Card> newList) {
+        //Look at the removed cards,
+        ArrayList<Card> cardsToAdd = new ArrayList<>();
+        boolean [] cardsToHold = strategy.getArrayCardsToHold();
+        if(strategy.getHandOfCards().getHandOfCards().size() != 5){
+            System.out.println("We got problems");
+        }
+        for(int i = 0; i < cardsToHold.length; i++)
+        {
+            if(cardsToHold[i] == true){
+                cardsToAdd.add(strategy.getHandOfCards().getCard(i));
+            }
+        }
+
+        newList.addAll(cardsToAdd);
+        Collections.sort(newList);
+        return new HandOfCards(newList);
     }
 
 }

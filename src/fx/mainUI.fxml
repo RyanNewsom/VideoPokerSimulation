@@ -81,7 +81,7 @@
                   <Font name="Verdana" size="12.0" />
                </font>
             </Button>
-            <Label fx:id="expected_payout" layoutX="749.0" layoutY="109.0" prefHeight="17.0" prefWidth="57.0" text="0.49">
+            <Label fx:id="expected_payout" layoutX="749.0" layoutY="109.0" prefHeight="17.0" prefWidth="57.0" text="0">
                <font>
                   <Font name="Rockwell" size="19.0" />
                </font>

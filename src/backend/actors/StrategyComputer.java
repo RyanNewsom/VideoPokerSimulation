@@ -56,18 +56,41 @@ public class StrategyComputer {
         //apply all strategies, this includes holding 1 card, holding 2, etc.
         Strategy h0 = applyHold0();
         Strategy h1 = applyHold1();
-        bestStrategy = h1;
         Strategy h2 = applyHold2();
         Strategy h3 = applyHold3();
         Strategy h4 = applyHold4();
         Strategy h5 = applyHold5();
 
         //Compare h0-h5, whichever is highest will be the optimal strategy
-        return h1;
+        ArrayList<Strategy> allStrategies = new ArrayList<>();
+        allStrategies.add(h0);
+        allStrategies.add(h1);
+        allStrategies.add(h2);
+        allStrategies.add(h3);
+        allStrategies.add(h4);
+        allStrategies.add(h5);
+        Strategy bestStrategy = allStrategies.get(0);
+        for(int i = 1; i < allStrategies.size(); i++){
+            if(allStrategies.get(i).getExpectedPayout() > bestStrategy.getExpectedPayout()){
+                bestStrategy = allStrategies.get(i);
+            }
+        }
+
+        return bestStrategy;
     }
 
     private Strategy applyHold0(){
-        return null;
+        Evaluator evaluator = new Evaluator(payoutTable);
+        Strategy highestExpectedPayoutStrategy = new Strategy(null, null);
+        Strategy strategy = new Strategy(TypeOfStrategy.HOLD0, initialHand);
+        //Hold 1 card from the hand. Try Holding a card at each position...
+        //Then generate all possible outcomes for that hand
+        PossibleOutcomeFactory outcomeFactory = new PossibleOutcomeFactory(strategy);
+        ArrayList<ArrayList<Strategy>> possibleOutcomes = outcomeFactory.getAllPossibleOutcomes(strategy, theDeck.getCards());
+        //Now that we have all possible outcomes, they need to be evaluated
+        //Go through each of the strategies and determines the highest expected payout for each
+        highestExpectedPayoutStrategy = evaluateStrategy(evaluator, highestExpectedPayoutStrategy, possibleOutcomes);
+        return highestExpectedPayoutStrategy;
     }
 
     private Strategy applyHold1() {
@@ -80,6 +103,74 @@ public class StrategyComputer {
         ArrayList<ArrayList<Strategy>> possibleOutcomes = outcomeFactory.getAllPossibleOutcomes(strategy, theDeck.getCards());
         //Now that we have all possible outcomes, they need to be evaluated
         //Go through each of the strategies and determines the highest expected payout for each
+        highestExpectedPayoutStrategy = evaluateStrategy(evaluator, highestExpectedPayoutStrategy, possibleOutcomes);
+        return highestExpectedPayoutStrategy;
+    }
+
+    private Strategy applyHold2(){
+        Evaluator evaluator = new Evaluator(payoutTable);
+        Strategy highestExpectedPayoutStrategy = new Strategy(null, null);
+        Strategy strategy = new Strategy(TypeOfStrategy.HOLD2, initialHand);
+        //Hold 1 card from the hand. Try Holding a card at each position...
+        //Then generate all possible outcomes for that hand
+        PossibleOutcomeFactory outcomeFactory = new PossibleOutcomeFactory(strategy);
+        ArrayList<ArrayList<Strategy>> possibleOutcomes = outcomeFactory.getAllPossibleOutcomes(strategy, theDeck.getCards());
+        //Now that we have all possible outcomes, they need to be evaluated
+        //Go through each of the strategies and determines the highest expected payout for each
+        highestExpectedPayoutStrategy = evaluateStrategy(evaluator, highestExpectedPayoutStrategy, possibleOutcomes);
+        return  highestExpectedPayoutStrategy;
+    }
+
+    private Strategy applyHold3(){
+        Evaluator evaluator = new Evaluator(payoutTable);
+        Strategy highestExpectedPayoutStrategy = new Strategy(null, null);
+        Strategy strategy = new Strategy(TypeOfStrategy.HOLD3, initialHand);
+        //Hold 1 card from the hand. Try Holding a card at each position...
+        //Then generate all possible outcomes for that hand
+        PossibleOutcomeFactory outcomeFactory = new PossibleOutcomeFactory(strategy);
+        ArrayList<ArrayList<Strategy>> possibleOutcomes = outcomeFactory.getAllPossibleOutcomes(strategy, theDeck.getCards());
+        //Now that we have all possible outcomes, they need to be evaluated
+        //Go through each of the strategies and determines the highest expected payout for each
+        highestExpectedPayoutStrategy = evaluateStrategy(evaluator, highestExpectedPayoutStrategy, possibleOutcomes);
+
+        return highestExpectedPayoutStrategy;
+    }
+
+    private Strategy applyHold4(){
+        Evaluator evaluator = new Evaluator(payoutTable);
+        Strategy highestExpectedPayoutStrategy = new Strategy(null, null);
+        Strategy strategy = new Strategy(TypeOfStrategy.HOLD4, initialHand);
+        //Hold 1 card from the hand. Try Holding a card at each position...
+        //Then generate all possible outcomes for that hand
+        PossibleOutcomeFactory outcomeFactory = new PossibleOutcomeFactory(strategy);
+        ArrayList<ArrayList<Strategy>> possibleOutcomes = outcomeFactory.getAllPossibleOutcomes(strategy, theDeck.getCards());
+        highestExpectedPayoutStrategy = evaluateStrategy(evaluator, highestExpectedPayoutStrategy, possibleOutcomes);
+
+        return highestExpectedPayoutStrategy;
+    }
+
+    private Strategy applyHold5(){
+        Evaluator evaluator = new Evaluator(payoutTable);
+        Strategy highestExpectedPayoutStrategy = new Strategy(null, null);
+        Strategy strategy = new Strategy(TypeOfStrategy.HOLD5, initialHand);
+        //Hold 1 card from the hand. Try Holding a card at each position...
+        //Then generate all possible outcomes for
+        // that hand
+        PossibleOutcomeFactory outcomeFactory = new PossibleOutcomeFactory(strategy);
+        ArrayList<ArrayList<Strategy>> possibleOutcomes = outcomeFactory.getAllPossibleOutcomes(strategy, theDeck.getCards());
+        highestExpectedPayoutStrategy = evaluateStrategy(evaluator, highestExpectedPayoutStrategy, possibleOutcomes);
+
+        return highestExpectedPayoutStrategy;
+    }
+
+    /**
+     *
+     * @param evaluator
+     * @param highestExpectedPayoutStrategy
+     * @param possibleOutcomes
+     * @return
+     */
+    private Strategy evaluateStrategy(Evaluator evaluator, Strategy highestExpectedPayoutStrategy, ArrayList<ArrayList<Strategy>> possibleOutcomes) {
         int totalPayout = 0;
         int numberOfStrategies = 0;
         int average = 0;
@@ -93,7 +184,9 @@ public class StrategyComputer {
                 totalPayout += aStrategy.getExpectedPayout();
                 numberOfStrategies++;
             }
-            int newAverage = totalPayout/numberOfStrategies;
+            double newAverage = totalPayout/numberOfStrategies;
+            numberOfStrategies = 0;
+            totalPayout = 0;
             if (newAverage >= average) {
                 highestExpectedPayoutStrategy = aStrategy;
             }
@@ -101,25 +194,4 @@ public class StrategyComputer {
         return highestExpectedPayoutStrategy;
     }
 
-    private Strategy applyHold2(){
-        //Hold 2 cards for each hand
-        return null;
-    }
-
-    private Strategy applyHold3(){
-        return null;
-    }
-
-    private Strategy applyHold4(){
-        //Determine all possible combinations of the cards being held.
-        Strategy strategy = new Strategy(TypeOfStrategy.HOLD4, initialHand);
-        PossibleOutcomeFactory outcomeFactory = new PossibleOutcomeFactory(strategy);
-        outcomeFactory.getAllPossibleOutcomes(strategy, cards);
-        //From all possible orderings of the initial hand, now determine all possible outcomes
-        return null;
-    }
-
-    private Strategy applyHold5(){
-        return null;
-    }
 }

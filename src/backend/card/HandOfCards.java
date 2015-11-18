@@ -16,7 +16,12 @@ public class HandOfCards {
 	}
 
 	public Card getCard(int index){
-		Card card = handOfCards.get(index);
+		Card card = null;
+		try {
+			card = handOfCards.get(index);
+		} catch (IndexOutOfBoundsException uhoh){
+			uhoh.printStackTrace();
+		}
 		return card;
 	}
 }

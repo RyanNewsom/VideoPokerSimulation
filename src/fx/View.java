@@ -105,7 +105,11 @@ public class View {
 
     @FXML
     protected void drawNewCardsButtonClick(MouseEvent event) {
-        getNewHand();
+        try {
+            getNewHand();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -184,7 +188,7 @@ public class View {
     /**
      * Notifies the controller that the View needs a new hand
      */
-    private void getNewHand() {
+    private void getNewHand() throws Exception {
         HandOfCards handOfCards = controller.getNewHandOfCards();
         currentHand = handOfCards;
         cards.clear();
