@@ -156,7 +156,7 @@ public class View {
             card_5_suite_main.setImage(image);
         }
          else{
-            log("error, holdCard method received an in-valid integer");
+//            log("error, holdCard method received an in-valid integer");
         }
     }
 
@@ -192,11 +192,11 @@ public class View {
         HandOfCards handOfCards = controller.getNewHandOfCards();
         currentHand = handOfCards;
         cards.clear();
-        log("updateCurrentHand has been called");
+//        log("updateCurrentHand has been called");
         for(int i = 0; i < currentHand.getHandOfCards().size(); i++){
             Card currentCard = currentHand.getCard(i);
             cards.add(currentCard);
-            log("Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
+//            log("Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
         }
         drawNewHand();
     }

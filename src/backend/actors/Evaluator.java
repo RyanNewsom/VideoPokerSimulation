@@ -83,15 +83,25 @@ public class Evaluator {
             //check for straight flush
             if(card1.getValue() +1 == card2.getValue() && card2.getValue() +1 == card3.getValue() && card3.getValue() +1 == card4.getValue() && card4.getValue() + 1 == card5.getValue()){
                 straightFlush = true;
-                if(card5.getValue() == 13){
+                if(card5.getValue() == 14 && card1.getValue() == 2 && card1.getValue() +1 == card2.getValue() && card2.getValue() +1 == card3.getValue() && card3.getValue() +1 == card4.getValue()){
+                    straightFlush = true;
+                }
+                if(card5.getValue() == 14){
                     royalFlush = true;
                 }
                 return;
             }
         }
+
         if(card1.getValue() +1 == card2.getValue() && card2.getValue() +1 == card3.getValue() && card3.getValue() +1 == card4.getValue() && card4.getValue() + 1 == card5.getValue()){
             straight = true;
         }
+
+        if(card5.getValue() == 14 && card1.getValue() == 2 && card1.getValue() +1 == card2.getValue() && card2.getValue() +1 == card3.getValue() && card3.getValue() +1 == card4.getValue()) {
+            straight = true;
+        }
+
+
         if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()){
             fourOfAKind = true;
             return;

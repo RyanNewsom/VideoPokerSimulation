@@ -1,7 +1,6 @@
 package backend.card;
 
 public class Value {
-	public static int ACE = 0;
 	public static int ONE = 1;
 	public static int TWO = 2;
 	public static int THREE = 3;
@@ -15,5 +14,5 @@ public class Value {
 	public static int JACK = 11;
 	public static int QUEEN = 12;
 	public static int KING = 13;
-
+	public static int ACE = 14;
 }
