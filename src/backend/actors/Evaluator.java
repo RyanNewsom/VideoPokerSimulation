@@ -229,7 +229,7 @@ public class Evaluator {
                     && card3.getValue() + 1 == card4.getValue() || checkMod(card3, card4)
                     && card4.getValue() + 1 == card5.getValue() || checkMod(card4, card5)) {
                 straightFlush = true;
-                if (card5.getValue() == 14) {
+                if (card5.getValue() == 13) {
                     royalFlush = true;
                 }
                 return true;
