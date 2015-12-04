@@ -174,7 +174,7 @@ public class StrategyComputer {
         double totalPayout = 0;
         int numberOfStrategies = 0;
         double average = 0;
-        for(int j = 0; j <possibleOutcomes.size(); j++) {
+        for(int j = 0; j < possibleOutcomes.size(); j++) {
             ArrayList<Strategy> strategies = possibleOutcomes.get(j);
             Strategy aStrategy = new Strategy(null, null);
             //Go through the strategy and determine the average expected payout

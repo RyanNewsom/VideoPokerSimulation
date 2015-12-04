@@ -131,7 +131,12 @@ public class Evaluator {
 
         }
 
-        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()){
+        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue()){
+            fourOfAKind = true;
+            return;
+        }
+
+        if (card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()) {
             fourOfAKind = true;
             return;
         }

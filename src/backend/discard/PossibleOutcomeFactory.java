@@ -121,6 +121,7 @@ public class PossibleOutcomeFactory {
         determineOrderings(cardsToHold8,2);
     }
 
+
     private void runallHold2() {
         boolean [] cardsToHold = new boolean[] {true,true,false,false,false};
         determineOrderings(cardsToHold,3);
