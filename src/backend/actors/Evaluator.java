@@ -116,8 +116,8 @@ public class Evaluator {
 
 
         if(existsAnAce){
-//            checkForFlushAce(card1, card2, card3, card4, card5);
-//            checkForStraightAce(card1, card2, card3, card4, card5);
+            checkForFlushAce(card1, card2, card3, card4, card5);
+            checkForStraightAce(card1, card2, card3, card4, card5);
         }
 
         if (checkForFourOfAKind(card1, card2, card3, card4)) return;
@@ -236,38 +236,14 @@ public class Evaluator {
                 if(card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4 && card4.getValue() == 5){
                     straightFlush = true;
                 }
-            } if(card4.getValue() == 13){
-                if(card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4){
-                    straightFlush = true;
-                }
-            } if(card3.getValue() == 12){
-                if(card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3){
-                    straightFlush = true;
-                }
-            } if(card2.getValue() == 11){
-                if(card3.getValue() == 12 && card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2){
-                    straightFlush = true;
-                }
             }
         }
         return false;
     }
 
     private void checkForStraightAce(Card card1, Card card2, Card card3, Card card4, Card card5) {
-        if(card5.getValue() == 14){
-            if(card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4 && card4.getValue() == 5){
-                straight = true;
-            }
-        } if(card4.getValue() == 13){
-            if(card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4){
-                straight = true;
-            }
-        } if(card3.getValue() == 12){
-            if(card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3){
-                straight = true;
-            }
-        } if(card2.getValue() == 11){
-            if(card3.getValue() == 12 && card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2){
+        if(card5.getValue() == 14) {
+            if (card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4 && card4.getValue() == 5) {
                 straight = true;
             }
         }
