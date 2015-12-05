@@ -5,6 +5,7 @@ import backend.card.Card;
 import backend.card.HandOfCards;
 import backend.data.PayoutTable;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -90,13 +91,6 @@ public class Evaluator {
         existsAnAce = false;
     }
 
-    private void determineVal(Card card){
-//        if(card.getValue() == 14){
-//            card.setValue(1);
-//            existsAnAce = true;
-//        }
-    }
-
     private void determinePayout() {
         HandOfCards hand = theStrategy.getHandOfCards();
         Collections.sort(hand.getHandOfCards());
@@ -112,41 +106,18 @@ public class Evaluator {
 
         checkForStraight(card1, card2, card3, card4, card5);
 
-        determineVal(card1);
-        determineVal(card2);
-        determineVal(card3);
-        determineVal(card4);
-        determineVal(card5);
+        ArrayList<Card> cards = hand.getHandOfCards();
+        for(int i = 0; i < cards.size(); i++){
+            Card temp = cards.get(i);
+            if(temp.getValue() == 14){
+                existsAnAce = true;
+            }
+        }
 
 
         if(existsAnAce){
-            ArrayList<Card> newHand = new ArrayList();
-            newHand.add(card1);
-            newHand.add(card2);
-            newHand.add(card3);
-            newHand.add(card4);
-            newHand.add(card5);
-
-            Collections.sort(newHand);
-
-            card1 = newHand.get(0);
-            card2 = newHand.get(1);
-            card3 = newHand.get(2);
-            card4 = newHand.get(3);
-            card5 = newHand.get(4);
-
-            checkForFlushAce(card1, card2, card3, card4, card5);
-            checkForFlushAce(card2, card3, card4, card5, card1);
-            checkForFlushAce(card3, card4, card5, card1, card2);
-            checkForFlushAce(card4, card5, card1, card2, card3);
-            checkForFlushAce(card5, card1, card2, card3, card4);
-
-            checkForStraightAce(card1, card2, card3, card4, card5);
-            checkForStraightAce(card2, card3, card4, card5, card1);
-            checkForStraightAce(card3, card4, card5, card1, card2);
-            checkForStraightAce(card4, card5, card1, card2, card3);
-            checkForStraightAce(card5, card1, card2, card3, card4);
-
+//            checkForFlushAce(card1, card2, card3, card4, card5);
+//            checkForStraightAce(card1, card2, card3, card4, card5);
         }
 
         if (checkForFourOfAKind(card1, card2, card3, card4)) return;
@@ -164,25 +135,25 @@ public class Evaluator {
 
     private void checkForPairJacksOrBetter(Card card1, Card card2, Card card3, Card card4, Card card5) {
         if(card1.getValue() == card2.getValue()){
-            if(card1.getValue() > 10 || card1.getValue() == 1) {
+            if(card1.getValue() > 10) {
                 pairJacksOrBetter = true;
             }
         }
 
         if(card2.getValue() == card3.getValue()){
-            if(card2.getValue() > 10 || card2.getValue() == 1) {
+            if(card2.getValue() > 10) {
                 pairJacksOrBetter = true;
             }
         }
 
         if(card3.getValue() == card4.getValue()){
-            if(card3.getValue() > 10 || card3.getValue() == 1) {
+            if(card3.getValue() > 10) {
                 pairJacksOrBetter = true;
             }
         }
 
         if(card4.getValue() == card5.getValue()){
-            if(card4.getValue() > 10 || card4.getValue() == 1) {
+            if(card4.getValue() > 10) {
                 pairJacksOrBetter = true;
             }
         }
@@ -261,37 +232,44 @@ public class Evaluator {
         if(card1.getSuit() == card2.getSuit() && card1.getSuit() == card3.getSuit() && card1.getSuit() == card4.getSuit() && card1.getSuit() == card5.getSuit()) {
             flush = true;
             //check for straight flush
-            if (card1.getValue() + 1 == card2.getValue() || checkMod(card1, card2)
-                    && card2.getValue() + 1 == card3.getValue() || checkMod(card2, card3)
-                    && card3.getValue() + 1 == card4.getValue() || checkMod(card3, card4)
-                    && card4.getValue() + 1 == card5.getValue() || checkMod(card4, card5)) {
-                straightFlush = true;
-                if (card5.getValue() == 1) {
-                    royalFlush = true;
+            if(card5.getValue() == 14){
+                if(card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4 && card4.getValue() == 5){
+                    straightFlush = true;
                 }
-                return true;
+            } if(card4.getValue() == 13){
+                if(card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4){
+                    straightFlush = true;
+                }
+            } if(card3.getValue() == 12){
+                if(card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3){
+                    straightFlush = true;
+                }
+            } if(card2.getValue() == 11){
+                if(card3.getValue() == 12 && card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2){
+                    straightFlush = true;
+                }
             }
-            if (card1.getValue() + 1 == card2.getValue() || checkMod(card1, card2) && card2.getValue() + 1 == card3.getValue() || checkMod(card2, card3) && card3.getValue() + 1 == card4.getValue() || checkMod(card3, card4) && card4.getValue() + 1 == card5.getValue() || checkMod(card4, card5)) {
-                straightFlush = true;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean checkMod(Card card1, Card card2){
-        if(card1.getValue()%13 + 1 == card2.getValue()){
-            return true;
         }
         return false;
     }
 
     private void checkForStraightAce(Card card1, Card card2, Card card3, Card card4, Card card5) {
-        if (card1.getValue() + 1 == card2.getValue() || checkMod(card1, card2)
-                && card2.getValue() + 1 == card3.getValue() || checkMod(card2, card3)
-                && card3.getValue() + 1 == card4.getValue() || checkMod(card3, card4)
-                && card4.getValue() + 1 == card5.getValue() || checkMod(card4, card5)) {
-            straight = true;
+        if(card5.getValue() == 14){
+            if(card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4 && card4.getValue() == 5){
+                straight = true;
+            }
+        } if(card4.getValue() == 13){
+            if(card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3 && card3.getValue() == 4){
+                straight = true;
+            }
+        } if(card3.getValue() == 12){
+            if(card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2 && card2.getValue() == 3){
+                straight = true;
+            }
+        } if(card2.getValue() == 11){
+            if(card3.getValue() == 12 && card4.getValue() == 13 && card5.getValue() == 14 && card1.getValue() == 2){
+                straight = true;
+            }
         }
     }
 }
