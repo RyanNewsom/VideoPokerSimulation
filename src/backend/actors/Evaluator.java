@@ -26,6 +26,16 @@ public class Evaluator {
     private boolean pairJacksOrBetter;
     private boolean existsAnAce;
 
+    private static int rF;
+    private static int sF;
+    private static int fOAK;
+    private static int fH;
+    private static int f;
+    private static int s;
+    private static int three;
+    private static int two;
+    private static int pair;
+
     public Evaluator(PayoutTable payoutTable) {
         this.payoutTable = payoutTable;
     }
@@ -35,22 +45,31 @@ public class Evaluator {
         determinePayout();
         if(royalFlush){
             strategy.setExpectedPayout((int) payoutTable.getRoyalFlush());
+            rF++;
         } else if(straightFlush){
             strategy.setExpectedPayout((int) payoutTable.getStraightflush());
+            sF++;
         } else if(fourOfAKind){
             strategy.setExpectedPayout((int) payoutTable.getFourOfAKindAces());
+            fOAK++;
         } else if(fullHouse){
             strategy.setExpectedPayout((int) payoutTable.getFullHouse());
+            fH++;
         } else if(flush){
             strategy.setExpectedPayout((int) payoutTable.getFlush());
+            f++;
         } else if(straight){
             strategy.setExpectedPayout((int) payoutTable.getStraight());
+            s++;
         } else if(threeOfAKind){
             strategy.setExpectedPayout((int) payoutTable.getThreeOfAKind());
+            three++;
         } else if(twoPair){
             strategy.setExpectedPayout((int) payoutTable.getTwoPair());
+            two++;
         } else if(pairJacksOrBetter){
             strategy.setExpectedPayout((int) payoutTable.getPairOfJacksOrBetter());
+            pair++;
         }
 
         resetBooleans();
@@ -72,10 +91,10 @@ public class Evaluator {
     }
 
     private void determineVal(Card card){
-        if(card.getValue() == 14){
-            card.setValue(1);
-            existsAnAce = true;
-        }
+//        if(card.getValue() == 14){
+//            card.setValue(1);
+//            existsAnAce = true;
+//        }
     }
 
     private void determinePayout() {
@@ -101,7 +120,6 @@ public class Evaluator {
 
 
         if(existsAnAce){
-
             ArrayList<Card> newHand = new ArrayList();
             newHand.add(card1);
             newHand.add(card2);
@@ -131,45 +149,20 @@ public class Evaluator {
 
         }
 
-        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue()){
-            fourOfAKind = true;
-            return;
-        }
+        if (checkForFourOfAKind(card1, card2, card3, card4)) return;
 
-        if (card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()) {
-            fourOfAKind = true;
-            return;
-        }
+        if (checkForFourOfAKind(card2, card3, card4, card5)) return;
 
-        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card4.getValue() == card5.getValue()){
-            fullHouse = true;
-            return;
-        }
-        if(card1.getValue() == card2.getValue() && card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()){
-            fullHouse = true;
-            return;
-        }
+        if (checkForFullHouse(card1, card2, card3, card4, card5)) return;
 
-        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue()){
-            threeOfAKind = true;
-        }
-        if(card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue()){
-            threeOfAKind = true;
-        }
-        if(card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()){
-            threeOfAKind = true;
-        }
+        checkForThreeOfAKind(card1, card2, card3, card4, card5);
 
-        if(card1.getValue() == card2.getValue() && card4.getValue() == card5.getValue()){
-            twoPair = true;
-        }
-        if(card2.getValue() == card3.getValue() && card4.getValue() == card5.getValue()){
-            twoPair = true;
-        }
-        if(card1.getValue() == card2.getValue() && card3.getValue() == card4.getValue()){
-            twoPair = true;
-        }
+        checkForTwoPair(card1, card2, card3, card4, card5);
 
+        checkForPairJacksOrBetter(card1, card2, card3, card4, card5);
+    }
+
+    private void checkForPairJacksOrBetter(Card card1, Card card2, Card card3, Card card4, Card card5) {
         if(card1.getValue() == card2.getValue()){
             if(card1.getValue() > 10 || card1.getValue() == 1) {
                 pairJacksOrBetter = true;
@@ -193,6 +186,50 @@ public class Evaluator {
                 pairJacksOrBetter = true;
             }
         }
+    }
+
+    private void checkForTwoPair(Card card1, Card card2, Card card3, Card card4, Card card5) {
+        if(card1.getValue() == card2.getValue() && card4.getValue() == card5.getValue()){
+            twoPair = true;
+        }
+        if(card2.getValue() == card3.getValue() && card4.getValue() == card5.getValue()){
+            twoPair = true;
+        }
+        if(card1.getValue() == card2.getValue() && card3.getValue() == card4.getValue()){
+            twoPair = true;
+        }
+    }
+
+    private void checkForThreeOfAKind(Card card1, Card card2, Card card3, Card card4, Card card5) {
+        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue()){
+            threeOfAKind = true;
+        }
+        if(card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue()){
+            threeOfAKind = true;
+        }
+        if(card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()){
+            threeOfAKind = true;
+        }
+    }
+
+    private boolean checkForFullHouse(Card card1, Card card2, Card card3, Card card4, Card card5) {
+        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card4.getValue() == card5.getValue()){
+            fullHouse = true;
+            return true;
+        }
+        if(card1.getValue() == card2.getValue() && card3.getValue() == card4.getValue() && card4.getValue() == card5.getValue()){
+            fullHouse = true;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkForFourOfAKind(Card card1, Card card2, Card card3, Card card4) {
+        if(card1.getValue() == card2.getValue() && card2.getValue() == card3.getValue() && card3.getValue() == card4.getValue()){
+            fourOfAKind = true;
+            return true;
+        }
+        return false;
     }
 
     private void checkForStraight(Card card1, Card card2, Card card3, Card card4, Card card5) {
@@ -229,7 +266,7 @@ public class Evaluator {
                     && card3.getValue() + 1 == card4.getValue() || checkMod(card3, card4)
                     && card4.getValue() + 1 == card5.getValue() || checkMod(card4, card5)) {
                 straightFlush = true;
-                if (card5.getValue() == 13) {
+                if (card5.getValue() == 1) {
                     royalFlush = true;
                 }
                 return true;

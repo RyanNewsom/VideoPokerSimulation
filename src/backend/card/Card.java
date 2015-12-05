@@ -7,6 +7,9 @@ public class Card implements Comparable {
 	public Card(Suit suit, int value){
 		setSuit(suit);
 		setValue(value);
+		if(value == 1){
+			System.out.print("wtf");
+		}
 	}
 
 	public Suit getSuit() {
@@ -22,7 +25,11 @@ public class Card implements Comparable {
 	}
 
 	public void setValue(int theValue) {
+		if(theValue == 1){
+			System.out.print("no");
+		}
 		this.theValue = theValue;
+
 	}
 
 

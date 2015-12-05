@@ -21,6 +21,7 @@ public class StrategyComputer {
     private Deck theDeck = new Deck();
     private PayoutTable payoutTable;
     private ArrayList<Card> cards;
+    private int anInt;
 
     public StrategyComputer(PayoutTable payoutTable) {
         this.payoutTable = payoutTable;
@@ -186,7 +187,8 @@ public class StrategyComputer {
             }
             double newAverage = totalPayout/numberOfStrategies;
             numberOfStrategies = 0;
-            totalPayout = 0;
+            anInt = 0;
+            totalPayout = anInt;
             if (newAverage >= average) {
                 average = newAverage;
                 highestExpectedPayoutStrategy = aStrategy;
