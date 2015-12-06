@@ -1,8 +1,10 @@
+/**
+ * A payout table for a Jacks or Better poker game
+ */
 public class PayoutTable {
-	/* Standard Pays */
 	private long royalFlush;
 	private long straightflush;
-	private long fourOfAKindAces;
+	private long fourOfAKind;
 	private long fullHouse;
 	private long flush;
 	private long straight;
@@ -10,10 +12,22 @@ public class PayoutTable {
 	private long twoPair;
 	private long pairOfJacksOrBetter;
 
-	public PayoutTable(long royalFlush, long straightflush, long fourOfAKindAces, long fullHouse, long flush, long straight, long threeOfAKind, long twoPair, long pairOfJacksOrBetter) {
+	/**
+	 * Creates a new jacks or better payout table
+	 * @param royalFlush - the payout for a royal flush
+	 * @param straightflush - the payout for a straight flush
+	 * @param fourOfAKind - the payout for four of a kind
+	 * @param fullHouse - the payout for a full house
+	 * @param flush - the payout for a flush
+	 * @param straight - the payout for a straight
+	 * @param threeOfAKind - the payout for three of a kind
+	 * @param twoPair - the payout for a two pair
+	 * @param pairOfJacksOrBetter - the payout for a pair of cards that are jacks or better
+	 */
+	public PayoutTable(long royalFlush, long straightflush, long fourOfAKind, long fullHouse, long flush, long straight, long threeOfAKind, long twoPair, long pairOfJacksOrBetter) {
 		this.royalFlush = royalFlush;
 		this.straightflush = straightflush;
-		this.fourOfAKindAces = fourOfAKindAces;
+		this.fourOfAKind = fourOfAKind;
 		this.fullHouse = fullHouse;
 		this.flush = flush;
 		this.straight = straight;
@@ -30,8 +44,8 @@ public class PayoutTable {
 		return straightflush;
 	}
 
-	public long getFourOfAKindAces() {
-		return fourOfAKindAces;
+	public long getFourOfAKind() {
+		return fourOfAKind;
 	}
 
 	public long getFullHouse() {

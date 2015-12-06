@@ -6,29 +6,25 @@ import java.util.Collections;
  * Gives all the possible hands that could result from a given strategy
  */
 public class PossibleOutcomeFactory {
-    private HandOfCards handOfCards;
     private Strategy strategy;
     private ArrayList<ArrayList<Strategy>> allPossibleOrderings = new ArrayList<>();
     private ArrayList<Strategy> possibleOrderings = new ArrayList<>();
     private ArrayList<Card> theCards;
-    ArrayList<Card> newList = new ArrayList<Card>();
-    private Card removedCard;
-
 
     /**
-     * Constructor
+     * Creates a new possible outcome factory, with a given strategy
      * @param theStrategy - Strategy to be used
      */
     public PossibleOutcomeFactory(Strategy theStrategy){
         strategy = theStrategy;
-        handOfCards = strategy.getHandOfCards();
     }
 
     /**
-     * This will get all possible combinations for 4 cards with the card to hold onto removed
-     * @param strategy
-     * @param cards
-     * @return
+     * This will get all possible combinations for a given strategy
+     * @param strategy - the strategy that is being used
+     * @param cards - the cards left in the deck
+     * @return - each index of the parent arraylist contains an arraylist of the possible outcomes for each strategy,
+     * so they are at seperate index's
      */
     public ArrayList<ArrayList<Strategy>> getAllPossibleOutcomes(Strategy strategy, ArrayList<Card> cards){
         theCards = cards;
@@ -180,33 +176,32 @@ public class PossibleOutcomeFactory {
 
     /**
      * Determines the possible orderings and populates the arraylist
-     * @param cardsToHold
-     * @param amountToGet
+     * @param cardsToHold - these are the cards that will be held
+     * @param amountToGet - the number of cards that need to be generated, 5 cards - held cards
      */
     private void determineOrderings(boolean[] cardsToHold, int amountToGet) {
         boolean[] b = new boolean[theCards.size()] ;
         this.strategy.setCardsToHoldOnto(cardsToHold);
-        subset(theCards, amountToGet, 0, 0, b);
+        createAllPossibilities(theCards, amountToGet, 0, 0, b);
         allPossibleOrderings.add(possibleOrderings);
         possibleOrderings = new ArrayList<>();
     }
 
     /**
      * This will get all the possible outcome hands, then they each need to be evaluated
-     * @param A - the alphabet
-     * @param k - the size of the subsets
-     * @param start
-     * @param currLen
-     * @param used
+     * @param A - the deck of cards that remains
+     * @param k - the size of each subset
+     * @param start - the index to start at
+     * @param currLen - the current length
+     * @param used - flags cards that have been used
      */
-    public void subset(ArrayList<Card> A, int k, int start, int currLen, boolean[] used) {
+    private void createAllPossibilities(ArrayList<Card> A, int k, int start, int currLen, boolean[] used) {
 
         if (currLen == k) {
             ArrayList<Card> newList = new ArrayList<>();
             for (int i = 0; i < A.size(); i++) {
                 if (used[i] == true) {
                     newList.add(A.get(i));
-//                    System.out.print(A.get(i) + " ");
                 }
             }
 
@@ -214,31 +209,29 @@ public class PossibleOutcomeFactory {
             Strategy newStrategy = new Strategy(strategy.getTheType(),newHand);
             newStrategy.setCardsToHoldOnto(strategy.getArrayCardsToHold());
             possibleOrderings.add(newStrategy);
-
-//            System.out.print(newStrategy.getCardsToHoldOnto());
-//            System.out.println();
             return;
         }
         if (start == A.size()) {
             return;
         }
-        // For every index we have two options,
-        // 1.. Either we select it, means put true in used[] and make currLen+1
+        // For each index their are two possibilities
+        // Select it
         used[start] = true;
-        subset(A, k, start + 1, currLen + 1, used);
-        // 2.. OR we dont select it, means put false in used[] and dont increase
-        // currLen
+        createAllPossibilities(A, k, start + 1, currLen + 1, used);
+        // don't select it
         used[start] = false;
-        subset(A, k, start + 1, currLen, used);
+        createAllPossibilities(A, k, start + 1, currLen, used);
     }
 
+    /**
+     * Inserts back into the hand, the cards that were removed because they were being held
+     * @param newList - cards that do not have the held cards in them
+     * @return - a new hand of cards with the new cards and cards being held combined
+     */
     private HandOfCards insertHeldCard(ArrayList<Card> newList) {
         //Look at the removed cards,
         ArrayList<Card> cardsToAdd = new ArrayList<>();
         boolean [] cardsToHold = strategy.getArrayCardsToHold();
-        if(strategy.getHandOfCards().getHandOfCards().size() != 5){
-            System.out.println("We got problems");
-        }
         for(int i = 0; i < cardsToHold.length; i++)
         {
             if(cardsToHold[i] == true){

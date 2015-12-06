@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * A poker machine
+ */
 public class PokerMachine {
 
 	//Objects
@@ -10,7 +13,11 @@ public class PokerMachine {
 
 	//Data
 	private int currentHandPosition;
-	
+
+	/**
+	 * Creates a new poker machine with the associated payout table
+	 * @param payoutTable
+	 */
 	public PokerMachine(PayoutTable payoutTable){
 		thePayoutTable = payoutTable;
 		setUpPossibleHands();
@@ -33,17 +40,11 @@ public class PokerMachine {
 		return null;
 	}
 
-	public PayoutTable getPayoutTable(){
-		return thePayoutTable;
-	}
-	
-	public void setPayoutTable(PayoutTable table){
-		thePayoutTable = table;
-	}
-
 	/**
-	 * Add all the possible hands to the possibleHands arrayList
-	 * [TODO] Add all the possibilities
+	 * Add all the possible hands to the possibleHands arrayList, that way every possible hand can be used to determine
+	 * the expected payout for a poker machine. However, scope has changed so now this method just generates a random hand from
+	 * the deck.
+	 * [TODO] Add all the possibilities if scope changes back to, determine expected payout for a video poker machine
 	 */
 	private HandOfCards setUpPossibleHands(){
 		Deck deck = new Deck();

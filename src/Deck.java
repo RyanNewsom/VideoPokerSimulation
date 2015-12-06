@@ -2,24 +2,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * A deck of cards
+ * A deck composed of 52 cards
  */
 public class Deck {
     private ArrayList<Card> deckOfCards = new ArrayList<>(52);
     private int currentCardPosition;
 
+    /**
+     * Creates a new deck of cards
+     */
     public Deck(){
         createDeck();
     }
 
-    public void createDeck(){
-        deckOfCards = generateDeck();
-        shuffleDeck();
-    }
-
     /**
      * Returns the next card in the deck
-     * @return
+     * @return - the next card in the deck
      */
     public Card getCard(){
         if(currentCardPosition >= 52) {
@@ -30,6 +28,34 @@ public class Deck {
         currentCardPosition++;
 
         return card;
+    }
+
+    /**
+     * Gets an array list of the cards in the deck
+     * @return - the cards that compose the deck
+     */
+    public ArrayList<Card> getCards(){
+        return deckOfCards;
+    }
+
+    /**
+     * Sets the card in the deck, useful to remove a hand from the deck
+     * @param cards - the new cards that will compose the deck
+     */
+    public void setDeckOfCards(ArrayList<Card> cards){
+        deckOfCards = cards;
+    }
+
+    private void createDeck(){
+        deckOfCards = generateDeck();
+        shuffleDeck();
+    }
+
+    /**
+     * Shuffles the cards within the deck
+     */
+    private void shuffleDeck(){
+        Collections.shuffle(deckOfCards);
     }
 
     /**
@@ -61,18 +87,4 @@ public class Deck {
         }
         return newDeck;
     }
-
-    public void shuffleDeck(){
-        Collections.shuffle(deckOfCards);
-    }
-
-    public ArrayList<Card> getCards(){
-        return deckOfCards;
-    }
-
-    public void setDeckOfCards(ArrayList<Card> cards){
-        deckOfCards = cards;
-    }
-
-
 }

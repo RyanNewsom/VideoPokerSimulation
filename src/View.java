@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Ryan on 10/26/2015.
+ * The view for the video poker program
  */
 public class View {
     //Controller
@@ -77,11 +78,6 @@ public class View {
     private long pairJacksOrBetter;
 
     //Objects
-    private Card card1;
-    private Card card2;
-    private Card card3;
-    private Card card4;
-    private Card card5;
     private HandOfCards currentHand;
     private ArrayList<Card> cards = new ArrayList<>(5);
 
@@ -226,7 +222,6 @@ public class View {
             value = "A";
 
         if(position == 1){
-            card1 = card;
             card_1_main_suite.setImage(image);
             card_1_suit.setImage(image);
             card_1_suit_copy.setImage(image);
@@ -235,7 +230,6 @@ public class View {
         }
 
         if(position == 2){
-            card2 = card;
             card_2_suite_main.setImage(image);
             card_2_suite.setImage(image);
             card_2_suite_copy.setImage(image);
@@ -244,7 +238,6 @@ public class View {
         }
 
         if(position == 3){
-            card3 = card;
             card_3_suite_main.setImage(image);
             card_3_suite.setImage(image);
             card_3_suite_copy.setImage(image);
@@ -253,7 +246,6 @@ public class View {
         }
 
         if(position == 4){
-            card4 = card;
             card_4_suite_main.setImage(image);
             card_4_suit.setImage(image);
             card_4_suite_copy.setImage(image);
@@ -262,7 +254,6 @@ public class View {
         }
 
         if(position == 5){
-            card5 = card;
             card_5_suite_main.setImage(image);
             card_5_suite.setImage(image);
             card_5_suite_copy.setImage(image);

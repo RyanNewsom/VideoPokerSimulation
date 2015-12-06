@@ -22,7 +22,6 @@ public class PossibleOutcomeFactoryTest {
     @Test
     public void testGetAllPossibleOrderings() throws Exception {
         Deck deck = new Deck();
-        deck.shuffleDeck();
 //        PokerMachine machine = new PokerMachine()
 //        PossibleOutcomeFactory factory = new PossibleOutcomeFactory()
 

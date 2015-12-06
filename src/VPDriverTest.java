@@ -8,9 +8,9 @@ public class VPDriverTest extends TestCase {
 
     @Test
     public void testHand(){
-        String payTableString = "250 50 25 7 5 4 3 2 1 0";
+        String payTableString = "800 50 25 8 5 4 3 2 1 0";
         VPDriver driver = new VPDriver(payTableString);
-        driver.testHand(0, 13, 27, 28, 29);
+        driver.testHand(29, 30, 19, 8, 0);
     }
 
 }
