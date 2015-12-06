@@ -1,4 +1,3 @@
-package fx;
 /**
  * Created by Ryan on 10/26/2015.
  */
@@ -22,6 +21,7 @@ public class VideoPoker extends Application {
 
         primaryStage.setTitle("Video Poker");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         scene.getStylesheets().add(VideoPoker.class.getResource("VideoPoker.css").toExternalForm());
         primaryStage.show();
 

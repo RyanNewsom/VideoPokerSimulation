@@ -1,6 +1,4 @@
-package tests;
 
-import backend.card.Deck;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

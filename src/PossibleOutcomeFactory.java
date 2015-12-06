@@ -1,12 +1,4 @@
-package backend.discard;
-
-import backend.Strategy;
-import backend.TypeOfStrategy;
-import backend.card.Card;
-import backend.card.HandOfCards;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**

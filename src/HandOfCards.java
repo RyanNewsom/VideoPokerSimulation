@@ -1,7 +1,3 @@
-package backend.card;
-
-import backend.card.Card;
-
 import java.util.ArrayList;
 
 public class HandOfCards {

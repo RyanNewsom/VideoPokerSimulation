@@ -1,5 +1,3 @@
-package backend.card;
-
 public class Card implements Comparable {
 	private Suit theSuit;
 	private int theValue;

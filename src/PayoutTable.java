@@ -1,5 +1,3 @@
-package backend.data;
-
 public class PayoutTable {
 	/* Standard Pays */
 	private long royalFlush;

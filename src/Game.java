@@ -1,10 +1,3 @@
-package backend;
-
-import backend.actors.Player;
-import backend.actors.PokerMachine;
-import backend.card.HandOfCards;
-import backend.data.PayoutTable;
-
 /**
  * Created by Ryan on 11/3/2015.
  * This class is the system class and is the environment for the game

@@ -1,12 +1,3 @@
-package backend.Model;
-
-import backend.Game;
-import backend.Strategy;
-import backend.data.PayoutTable;
-import backend.actors.PokerMachine;
-import backend.card.HandOfCards;
-import fx.View;
-
 /**
  * Created by Ryan on 11/6/2015.
  * Communicates between the controller and view

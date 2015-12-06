@@ -1,14 +1,3 @@
-package backend.actors;
-
-import backend.card.Card;
-import backend.data.PayoutTable;
-import backend.discard.PossibleOutcomeFactory;
-import backend.Strategy;
-import backend.TypeOfStrategy;
-import backend.card.Deck;
-import backend.card.HandOfCards;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**

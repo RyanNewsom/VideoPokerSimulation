@@ -1,11 +1,3 @@
-package fx;
-
-import backend.Strategy;
-import backend.card.Suit;
-import backend.data.PayoutTable;
-import backend.card.Card;
-import backend.card.HandOfCards;
-import backend.controller.Controller;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,9 +12,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
