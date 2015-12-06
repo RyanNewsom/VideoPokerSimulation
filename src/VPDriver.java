@@ -50,7 +50,7 @@ public class VPDriver {
             if(card == 39){
                 val = 14;
             } else {
-                val = val - 39;
+                val = val - 38;
             }
             card1 = new Card(Suit.SPADES, val);
         } else if(card >= 26){
@@ -58,7 +58,7 @@ public class VPDriver {
             if(card == 26){
                 val = 14;
             } else {
-                val = val - 26;
+                val = val - 25;
             }
             card1 = new Card(Suit.DIAMOND, val);
         } else if(card >= 13){
@@ -66,7 +66,7 @@ public class VPDriver {
             if(card == 13){
                 val = 14;
             } else {
-                val = val - 13;
+                val = val - 12;
             }
             card1 = new Card(Suit.CLUBS, val);
         } else {
