@@ -1,15 +1,20 @@
-package backend.card;
+package model;
 
+/**
+ * A poker card
+ */
 public class Card implements Comparable {
 	private Suit theSuit;
 	private int theValue;
-	
+
+	/**
+	 * Cretes a new poker card
+	 * @param suit - the suit of the card
+	 * @param value - the value of the card 2-14, 14 = ace
+	 */
 	public Card(Suit suit, int value){
 		setSuit(suit);
 		setValue(value);
-		if(value == 1){
-			System.out.print("wtf");
-		}
 	}
 
 	public Suit getSuit() {
@@ -42,6 +47,6 @@ public class Card implements Comparable {
 
 	@Override
 	public String toString() {
-		return " Card Values: S: " + theSuit + " Val: " + theValue;
+		return " model.Card Values: model.Suit: " + theSuit + " Value: " + theValue;
 	}
 }

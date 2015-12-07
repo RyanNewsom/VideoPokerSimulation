@@ -1,5 +1,8 @@
-package backend.card;
+package model;
 
+/**
+ * A suit for a poker card
+ */
 public enum Suit {
 	HEARTS, SPADES, CLUBS, DIAMOND;
 

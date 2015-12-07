@@ -1,22 +1,15 @@
-package backend.Model;
-
-import backend.Game;
-import backend.Strategy;
-import backend.data.PayoutTable;
-import backend.actors.PokerMachine;
-import backend.card.HandOfCards;
-import fx.View;
+package model;
 
 /**
  * Created by Ryan on 11/6/2015.
- * Communicates between the controller and view
+ * The model of the backend
  */
 public class Model {
     PokerMachine pokerMachine = new PokerMachine(null);
     HandOfCards currentHand;
 
     /**
-     * generates a new hand, then sends it to the view
+     * Generates a new hand, then sends it to the view
      */
     public HandOfCards generateNewHand(){
         currentHand = pokerMachine.dealHandOfCards();
@@ -24,7 +17,7 @@ public class Model {
     }
 
     /**
-     * determines the expected payout for a hand, then sends it to the view
+     * Determines the expected payout for a hand, then sends it to the view
      */
     public Strategy determineExpectedPayoutForHand(PayoutTable currentPayout){
         Game aGameSimulation = new Game(currentPayout, currentHand);

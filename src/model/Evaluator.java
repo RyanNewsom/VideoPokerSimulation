@@ -1,12 +1,7 @@
-package backend.actors;
+package model;
 
-import backend.Strategy;
-import backend.card.Card;
-import backend.card.HandOfCards;
-import backend.data.PayoutTable;
+import model.Card;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Collections;
 
 /**
@@ -25,52 +20,42 @@ public class Evaluator {
     private boolean threeOfAKind;
     private boolean twoPair;
     private boolean pairJacksOrBetter;
-    private boolean existsAnAce;
 
-    private static int rF;
-    private static int sF;
-    private static int fOAK;
-    private static int fH;
-    private static int f;
-    private static int s;
-    private static int three;
-    private static int two;
-    private static int pair;
-
+    /**
+     * Creates a new hand evaluator
+     * @param payoutTable - the payout table of the poker game
+     */
     public Evaluator(PayoutTable payoutTable) {
         this.payoutTable = payoutTable;
     }
 
+    /**
+     * Evaluates a given strategy and determines the payout for it. It ignores all data within the model.Strategy, except
+     * the hand of cards itself. Which strategy is being used(hold0, hold1, etc, does not have an effect on the evaluation
+     * @param strategy - the strategy containing the hand of cards to be evaluated
+     * @return
+     */
     public Strategy evaluateHand(Strategy strategy){
         theStrategy = strategy;
         determinePayout();
         if(royalFlush){
             strategy.setExpectedPayout((int) payoutTable.getRoyalFlush());
-            rF++;
         } else if(straightFlush){
             strategy.setExpectedPayout((int) payoutTable.getStraightflush());
-            sF++;
         } else if(fourOfAKind){
-            strategy.setExpectedPayout((int) payoutTable.getFourOfAKindAces());
-            fOAK++;
+            strategy.setExpectedPayout((int) payoutTable.getFourOfAKind());
         } else if(fullHouse){
             strategy.setExpectedPayout((int) payoutTable.getFullHouse());
-            fH++;
         } else if(flush){
             strategy.setExpectedPayout((int) payoutTable.getFlush());
-            f++;
         } else if(straight){
             strategy.setExpectedPayout((int) payoutTable.getStraight());
-            s++;
         } else if(threeOfAKind){
             strategy.setExpectedPayout((int) payoutTable.getThreeOfAKind());
-            three++;
         } else if(twoPair){
             strategy.setExpectedPayout((int) payoutTable.getTwoPair());
-            two++;
         } else if(pairJacksOrBetter){
             strategy.setExpectedPayout((int) payoutTable.getPairOfJacksOrBetter());
-            pair++;
         }
 
         resetBooleans();
@@ -88,7 +73,6 @@ public class Evaluator {
         threeOfAKind = false;
         twoPair = false;
         pairJacksOrBetter = false;
-        existsAnAce = false;
     }
 
     private void determinePayout() {
@@ -106,19 +90,9 @@ public class Evaluator {
 
         checkForStraight(card1, card2, card3, card4, card5);
 
-        ArrayList<Card> cards = hand.getHandOfCards();
-        for(int i = 0; i < cards.size(); i++){
-            Card temp = cards.get(i);
-            if(temp.getValue() == 14){
-                existsAnAce = true;
-            }
-        }
+        checkForFlushAce(card1, card2, card3, card4, card5);
 
-
-        if(existsAnAce){
-            checkForFlushAce(card1, card2, card3, card4, card5);
-            checkForStraightAce(card1, card2, card3, card4, card5);
-        }
+        checkForStraightAce(card1, card2, card3, card4, card5);
 
         if (checkForFourOfAKind(card1, card2, card3, card4)) return;
 

@@ -1,14 +1,5 @@
-package backend.actors;
+package model;
 
-import backend.card.Card;
-import backend.data.PayoutTable;
-import backend.discard.PossibleOutcomeFactory;
-import backend.Strategy;
-import backend.TypeOfStrategy;
-import backend.card.Deck;
-import backend.card.HandOfCards;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -16,17 +7,24 @@ import java.util.ArrayList;
  * This computes the optimal strategy for a given hand
  */
 public class StrategyComputer {
-    private Strategy bestStrategy;
     private HandOfCards initialHand;
     private Deck theDeck = new Deck();
     private PayoutTable payoutTable;
-    private ArrayList<Card> cards;
     private int anInt;
 
+    /**
+     * Creates a new strategy computer
+     * @param payoutTable - the payout table for the game
+     */
     public StrategyComputer(PayoutTable payoutTable) {
         this.payoutTable = payoutTable;
     }
 
+    /**
+     * Will determine the best strategy for a hand
+     * @param initialHand - the hand of cards dealt
+     * @return - the optimal strategy(highest expected payout)
+     */
     public Strategy determineBestStrategy(HandOfCards initialHand){
         this.initialHand = initialHand;
         removeCardsFromDeck();
@@ -165,13 +163,14 @@ public class StrategyComputer {
     }
 
     /**
-     *
-     * @param evaluator
-     * @param highestExpectedPayoutStrategy
+     * Goes through each possible outcome and determines the value for each hand, then finds which strategy has the highest
+     * expected payout
+     * @param evaluator - the evaluator to be used to evaluating the hand
+     * @param theStrategy - the strategy to be
      * @param possibleOutcomes
      * @return
      */
-    private Strategy evaluateStrategy(Evaluator evaluator, Strategy highestExpectedPayoutStrategy, ArrayList<ArrayList<Strategy>> possibleOutcomes) {
+    private Strategy evaluateStrategy(Evaluator evaluator, Strategy theStrategy, ArrayList<ArrayList<Strategy>> possibleOutcomes) {
         double totalPayout = 0;
         int numberOfStrategies = 0;
         double average = 0;
@@ -191,11 +190,11 @@ public class StrategyComputer {
             totalPayout = anInt;
             if (newAverage >= average) {
                 average = newAverage;
-                highestExpectedPayoutStrategy = aStrategy;
-                highestExpectedPayoutStrategy.setExpectedPayout(average);
+                theStrategy = aStrategy;
+                theStrategy.setExpectedPayout(average);
             }
         }
-        return highestExpectedPayoutStrategy;
+        return theStrategy;
     }
 
 }

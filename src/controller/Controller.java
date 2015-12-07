@@ -1,9 +1,9 @@
-package backend.controller;
+package controller;
 
-import backend.Model.Model;
-import backend.Strategy;
-import backend.card.HandOfCards;
-import backend.data.PayoutTable;
+import model.HandOfCards;
+import model.Model;
+import model.PayoutTable;
+import model.Strategy;
 
 /**
  * Communicates between the view and model

@@ -1,11 +1,6 @@
-package fx;
+package view;
 
-import backend.Strategy;
-import backend.card.Suit;
-import backend.data.PayoutTable;
-import backend.card.Card;
-import backend.card.HandOfCards;
-import backend.controller.Controller;
+import controller.Controller;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,18 +14,20 @@ import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Card;
+import model.HandOfCards;
+import model.PayoutTable;
+import model.Strategy;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
 /**
  * Created by Ryan on 10/26/2015.
+ * The view for the video poker program
  */
 public class View {
-    //Controller
+    //controller.Controller
     Controller controller = new Controller();
 
     //VIEWS
@@ -88,11 +85,6 @@ public class View {
     private long pairJacksOrBetter;
 
     //Objects
-    private Card card1;
-    private Card card2;
-    private Card card3;
-    private Card card4;
-    private Card card5;
     private HandOfCards currentHand;
     private ArrayList<Card> cards = new ArrayList<>(5);
 
@@ -196,7 +188,7 @@ public class View {
         for(int i = 0; i < currentHand.getHandOfCards().size(); i++){
             Card currentCard = currentHand.getCard(i);
             cards.add(currentCard);
-//            log("Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
+//            log("model.Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
         }
         drawNewHand();
     }
@@ -237,7 +229,6 @@ public class View {
             value = "A";
 
         if(position == 1){
-            card1 = card;
             card_1_main_suite.setImage(image);
             card_1_suit.setImage(image);
             card_1_suit_copy.setImage(image);
@@ -246,7 +237,6 @@ public class View {
         }
 
         if(position == 2){
-            card2 = card;
             card_2_suite_main.setImage(image);
             card_2_suite.setImage(image);
             card_2_suite_copy.setImage(image);
@@ -255,7 +245,6 @@ public class View {
         }
 
         if(position == 3){
-            card3 = card;
             card_3_suite_main.setImage(image);
             card_3_suite.setImage(image);
             card_3_suite_copy.setImage(image);
@@ -264,7 +253,6 @@ public class View {
         }
 
         if(position == 4){
-            card4 = card;
             card_4_suite_main.setImage(image);
             card_4_suit.setImage(image);
             card_4_suite_copy.setImage(image);
@@ -273,7 +261,6 @@ public class View {
         }
 
         if(position == 5){
-            card5 = card;
             card_5_suite_main.setImage(image);
             card_5_suite.setImage(image);
             card_5_suite_copy.setImage(image);

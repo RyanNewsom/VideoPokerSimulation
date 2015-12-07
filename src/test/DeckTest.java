@@ -1,12 +1,10 @@
-package tests;
+package test;
 
-import backend.card.Card;
-import backend.card.Deck;
+import model.Card;
+import model.Deck;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -28,7 +26,7 @@ public class DeckTest {
 
     @Test
     public void testCreateDeck() throws Exception {
-//        ArrayList<Card> cards = testDeck.getDeck();
+//        ArrayList<model.Card> cards = testDeck.getDeck();
 //        assertEquals(52, cards.size());
     }
 
