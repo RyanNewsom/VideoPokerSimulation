@@ -1,3 +1,5 @@
+package model;
+
 /**
  * A suit for a poker card
  */

@@ -1,3 +1,7 @@
+package model;
+
+import model.Card;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

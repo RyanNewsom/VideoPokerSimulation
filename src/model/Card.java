@@ -1,3 +1,5 @@
+package model;
+
 /**
  * A poker card
  */
@@ -45,6 +47,6 @@ public class Card implements Comparable {
 
 	@Override
 	public String toString() {
-		return " Card Values: Suit: " + theSuit + " Value: " + theValue;
+		return " model.Card Values: model.Suit: " + theSuit + " Value: " + theValue;
 	}
 }

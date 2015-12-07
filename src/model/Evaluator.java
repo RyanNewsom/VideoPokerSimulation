@@ -1,3 +1,7 @@
+package model;
+
+import model.Card;
+
 import java.util.Collections;
 
 /**
@@ -26,7 +30,7 @@ public class Evaluator {
     }
 
     /**
-     * Evaluates a given strategy and determines the payout for it. It ignores all data within the Strategy, except
+     * Evaluates a given strategy and determines the payout for it. It ignores all data within the model.Strategy, except
      * the hand of cards itself. Which strategy is being used(hold0, hold1, etc, does not have an effect on the evaluation
      * @param strategy - the strategy containing the hand of cards to be evaluated
      * @return

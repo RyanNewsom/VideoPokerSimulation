@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Created by Ryan on 11/3/2015.
  * A type of strategy

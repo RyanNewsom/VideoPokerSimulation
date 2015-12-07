@@ -1,4 +1,4 @@
-/**
+package view; /**
  * Created by Ryan on 10/26/2015.
  * The Driver for running the Video Poker game using the GUI
  */

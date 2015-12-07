@@ -1,3 +1,5 @@
+package model;
+
 /**
  * A payout table for a Jacks or Better poker game
  */

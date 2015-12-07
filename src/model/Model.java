@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Created by Ryan on 11/6/2015.
  * The model of the backend

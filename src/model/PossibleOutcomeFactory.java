@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,7 +15,7 @@ public class PossibleOutcomeFactory {
 
     /**
      * Creates a new possible outcome factory, with a given strategy
-     * @param theStrategy - Strategy to be used
+     * @param theStrategy - model.Strategy to be used
      */
     public PossibleOutcomeFactory(Strategy theStrategy){
         strategy = theStrategy;
@@ -144,12 +146,12 @@ public class PossibleOutcomeFactory {
 
     private void runallHold1() {
         //Try the 5 different possibilities for hold 1
-        //Hold First Card
+        //Hold First model.Card
         boolean [] cardsToHold = new boolean[] {true,false,false,false,false};
         determineOrderings(cardsToHold, 4);
 
 
-        //Hold Second Card
+        //Hold Second model.Card
         boolean [] cardsToHold1 = new boolean[] {false,true,false,false,false};
         determineOrderings(cardsToHold1, 4);
 

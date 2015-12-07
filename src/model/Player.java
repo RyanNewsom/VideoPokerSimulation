@@ -1,3 +1,5 @@
+package model;
+
 public class Player {
 	private Strategy myStrategy;
 
@@ -10,7 +12,7 @@ public class Player {
 	 * The player will get the best strategy for a hand of poker
 	 * @param initialHand - the hand the player has
 	 * @param payoutTable - the payout table of the poker game
-	 * @return - the best Strategy for the hand, which cards to hold, and the expected payout
+	 * @return - the best model.Strategy for the hand, which cards to hold, and the expected payout
 	 */
 	public Strategy getBestStrategy(HandOfCards initialHand, PayoutTable payoutTable){
 		askStrategyComputerForBestStrategy(initialHand, payoutTable);

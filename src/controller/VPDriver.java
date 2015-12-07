@@ -1,3 +1,7 @@
+package controller;
+
+import model.*;
+
 import java.util.ArrayList;
 
 /**
@@ -8,7 +12,7 @@ public class VPDriver {
     PayoutTable mPayoutTable;
 
     /**
-     * Costructs a VPDriver object with the specified payout table.
+     * Costructs a controller.VPDriver object with the specified payout table.
      * The payout table is represented as a space-delimited string indicating
      * the payouts associated with each of the hand qualifications in the following order:
      * Royal Flush, Straight Flush, Four of a Kind, Full House, Flush, Straight,

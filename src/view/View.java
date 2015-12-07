@@ -1,3 +1,6 @@
+package view;
+
+import controller.Controller;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,6 +14,10 @@ import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Card;
+import model.HandOfCards;
+import model.PayoutTable;
+import model.Strategy;
 
 import java.util.ArrayList;
 
@@ -20,7 +27,7 @@ import java.util.ArrayList;
  * The view for the video poker program
  */
 public class View {
-    //Controller
+    //controller.Controller
     Controller controller = new Controller();
 
     //VIEWS
@@ -181,7 +188,7 @@ public class View {
         for(int i = 0; i < currentHand.getHandOfCards().size(); i++){
             Card currentCard = currentHand.getCard(i);
             cards.add(currentCard);
-//            log("Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
+//            log("model.Card " + (i + 1) + " suite: " + currentCard.getSuit() + " Value: " + currentCard.getValue() );
         }
         drawNewHand();
     }

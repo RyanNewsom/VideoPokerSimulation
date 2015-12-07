@@ -1,4 +1,7 @@
+package test;
 
+import model.Card;
+import model.Deck;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +26,7 @@ public class DeckTest {
 
     @Test
     public void testCreateDeck() throws Exception {
-//        ArrayList<Card> cards = testDeck.getDeck();
+//        ArrayList<model.Card> cards = testDeck.getDeck();
 //        assertEquals(52, cards.size());
     }
 

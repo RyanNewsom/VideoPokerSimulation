@@ -1,3 +1,10 @@
+package controller;
+
+import model.HandOfCards;
+import model.Model;
+import model.PayoutTable;
+import model.Strategy;
+
 /**
  * Communicates between the view and model
  */

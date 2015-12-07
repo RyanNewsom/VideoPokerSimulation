@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Created by Ryan on 11/3/2015.
  * This class is the system class and is the environment for the game
@@ -20,7 +22,7 @@ public class Game {
 
     /**
      * Asks the player when the optimal strategy is for the current hand
-     * @return - the optimal Strategy to use, containing the payout and which cards to hold
+     * @return - the optimal model.Strategy to use, containing the payout and which cards to hold
      */
     public Strategy determineOptimalStrategy(){
         return thePlayer.getBestStrategy(initialHand, payoutTable);
